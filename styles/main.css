@@ -10,6 +10,10 @@ body {
     margin: auto;
     padding: 20px;
 }
+.responsive-image{
+    max-width: 100%;
+    height: auto;
+}
 header {
     text-align: center;
     padding: 20px 0;
@@ -35,4 +39,5 @@ ul {
 }
 li {
     margin-bottom: 10px; /* Adds spacing between list items */
-} 
+}
+ 
