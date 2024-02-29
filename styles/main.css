@@ -10,7 +10,7 @@ body {
     margin: auto;
     padding: 20px;
 }
-.responsive-image{
+.responsive-image {
     max-width: 100%;
     height: auto;
 }
