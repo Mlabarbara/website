@@ -41,7 +41,10 @@
             transform: translateY(-8px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
         }
-
+        /* Dark mode hover effect */
+        .dark .hover-float:hover {
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.15);
+        }
         .nav-link {
             position: relative;
             text-decoration: none;
@@ -105,14 +108,17 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .dark .content-card {
+            background: rgba(31, 41, 55, 0.95);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
         .content-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .dark .content-card {
-            background: rgba(31, 41, 55, 0.95);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        .dark .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.15); /* Subtle blue glow in dark mode */
         }
 
         .skill-tag {
