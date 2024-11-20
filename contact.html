@@ -2,74 +2,192 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Mark LaBarbara</title>
-    <link rel="stylesheet" href="/styles/main.css">
-<!--    
+    <title>Contact - Mark LaBarbara</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: rgb(47, 110, 160); /* Adjust the main background if needed */
-            color: white;
-            margin: 0;
-            padding: 0;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
+
+        @keyframes floatUp {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
         }
-        header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: rgb(45, 80, 156); /* Darker blue for the header */
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
         }
-        a {
-            color: rgb(220, 225, 235); /* Soft white for links */
+
+        .hover-float {
+            transition: all 0.3s ease;
+        }
+
+        .hover-float:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* Dark mode hover effect */
+        .dark .hover-float:hover {
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.15);
+        }
+        .nav-link {
+            position: relative;
             text-decoration: none;
-            padding: 0 10px;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
         }
-        a:hover {
-            text-decoration: underline;
-            color: rgb(108, 142, 191); /* Lighter blue for hovered links */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #60a5fa;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
-        h1, h2 {
-            color: #ADE8F4;
+
+        .nav-link:hover::after {
+            width: 80%;
         }
-        p, ul {
-            line-height: 1.6;
+
+        .profile-section {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            transition: background 0.3s ease;
         }
-        ul {
-            list-style-type: none; /* Removes default bullet points */
+
+        .dark .profile-section {
+            background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
         }
-        li {
-            margin-bottom: 10px; /* Adds spacing between list items */
+
+        .headshot-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .headshot-container:hover {
+            transform: scale(1.02);
+            border-color: white;
+            box-shadow: 0 6px 12px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .headshot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transform: scale(1.5);
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark .content-card {
+            background: rgba(31, 41, 55, 0.95);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+        .dark .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.15); /* Subtle blue glow in dark mode */
+        }
+
+        .skill-tag {
+            background-color: rgba(37, 99, 235, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .dark .skill-tag {
+            background-color: rgba(37, 99, 235, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            background-color: rgba(37, 99, 235, 1);
+        }
+
+        .dark .skill-tag:hover {
+            background-color: rgba(37, 99, 235, 0.6);
         }
     </style>
--->
 </head>
 <body>
-<div class="container">
-    <header>
-        <h1>Contact Me</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <section>
-        <h2>Let's Connect</h2>
-        <p>You can reach me through the following platforms:</p>
-        <ul>
-            <li>Email: <a href="mailto:mark@markserver.cc">mark@markserver.cc</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/mark-it/" target="_blank">LinkedIn Profile</a></li>
-            <li>GitHub: <a href="https://github.com/Mlabarbara" target="_blank">GitHub Profile</a></li>
-            <!-- Add other social media or professional profiles as needed -->
-        </ul>
-    </section>
-</div>
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <span class="text-white text-xl font-bold">M.LaB</span>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-blue-200">Home</a>
+                <a href="projects.html" class="nav-link text-white hover:text-blue-200">Projects</a>
+                <a href="contact.html" class="nav-link text-white hover:text-blue-200">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 py-12" role="main">
+        <div class="rounded-xl bg-blue-700 p-8 mb-12">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl font-bold mb-4 text-white">Let's Connect</h1>
+                    <h2 class="text-xl font-semibold mb-4 text-white">Contact Information</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-800 bg-opacity-50 rounded-xl p-8 animate-fade-in" style="animation-delay: 0.2s">
+            <div class="space-y-4">
+                <a href="mailto:mark@markserver.cc" class="flex items-center space-x-2 text-white hover:text-blue-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>mark@markserver.cc</span>
+                </a>
+                <a href="https://www.linkedin.com/in/mark-it/" target="_blank" class="flex items-center space-x-2 text-white hover:text-blue-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/Mlabarbara" target="_blank" class="flex items-center space-x-2 text-white hover:text-blue-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                    <span>GitHub Profile</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-
