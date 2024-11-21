@@ -243,6 +243,8 @@
                 localStorage.theme = 'light';
             }
         }
+        // set darkmode default
+        setDarkMode(true);
 
         // Check for saved theme preference or system preference
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
