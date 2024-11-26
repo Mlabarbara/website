@@ -1,3 +1,4 @@
+/* main.css begin */
 /* Base styles */
 body {
     font-family: 'Inter', sans-serif;
@@ -105,3 +106,4 @@ body.dark {
 .dark .skill-tag:hover {
     background-color: rgba(37, 99, 235, 0.6);
 }
+/* main.css end */

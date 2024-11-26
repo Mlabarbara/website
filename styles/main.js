@@ -1,3 +1,4 @@
+// main.js begin
 // Theme toggle functionality
 function setDarkMode(isDark) {
     if (isDark) {
@@ -45,3 +46,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     initializeMobileMenu();
 });
+//main.js end
