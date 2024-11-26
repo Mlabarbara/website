@@ -1,4 +1,3 @@
-// main.js begin
 // Theme toggle functionality
 function setDarkMode(isDark) {
     if (isDark) {
@@ -12,20 +11,34 @@ function setDarkMode(isDark) {
 
 // Initialize theme
 function initializeTheme() {
-    // Check for saved theme preference or system preference
+    // Set initial dark mode state
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         setDarkMode(true);
     } else {
         setDarkMode(false);
     }
 
-    // Theme toggle event listeners
-    document.getElementById('theme-toggle')?.addEventListener('click', () => {
-        setDarkMode(!document.documentElement.classList.contains('dark'));
-    });
+    // Add event listeners for theme toggles
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
 
-    document.getElementById('theme-toggle-mobile')?.addEventListener('click', () => {
-        setDarkMode(!document.documentElement.classList.contains('dark'));
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            setDarkMode(!document.documentElement.classList.contains('dark'));
+        });
+    }
+
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', () => {
+            setDarkMode(!document.documentElement.classList.contains('dark'));
+        });
+    }
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.theme) {
+            setDarkMode(e.matches);
+        }
     });
 }
 
@@ -41,9 +54,17 @@ function initializeMobileMenu() {
     }
 }
 
+// Animation functionality
+function initializeAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-fade-in');
+    animatedElements.forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.2}s`;
+    });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     initializeMobileMenu();
+    initializeAnimations();
 });
-//main.js end
