@@ -1,3 +1,4 @@
+/* main.css */
 /* Base styles */
 :root {
     color-scheme: light dark;
@@ -151,3 +152,4 @@ html.dark .dark\:bg-gray-900 {
 html.dark .dark\:bg-gray-800 {
     background-color: rgb(31, 41, 55);
 }
+/* end main.css */
