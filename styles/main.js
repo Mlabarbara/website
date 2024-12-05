@@ -1,4 +1,6 @@
+// main.js //
 // Theme toggle functionality
+
 function setDarkMode(isDark) {
     if (isDark) {
         document.documentElement.classList.add('dark');
@@ -68,3 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMobileMenu();
     initializeAnimations();
 });
+// end main.js // 
