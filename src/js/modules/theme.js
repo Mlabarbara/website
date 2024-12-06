@@ -1,3 +1,13 @@
+// Immediate theme initialization
+const prefersDark = localStorage.theme === 'dark' || 
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+if (prefersDark) {
+    document.documentElement.classList.add('dark');
+} else {
+    document.documentElement.classList.remove('dark');
+}
+
 export function setDarkMode(isDark) {
     if (isDark) {
         document.documentElement.classList.add('dark');
@@ -9,26 +19,27 @@ export function setDarkMode(isDark) {
 }
 
 export function initializeTheme() {
-    // Set theme immediately
-    const prefersDark = localStorage.theme === 'dark' || 
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    document.documentElement.classList.toggle('dark', prefersDark);
-
+    console.log('Initializing theme system');
+    
     const themeToggle = document.getElementById('theme-toggle');
     const mobileThemeToggle = document.getElementById('theme-toggle-mobile');
+    
+    const setupToggle = (element) => {
+        if (element) {
+            console.log(`Setting up theme toggle: ${element.id}`);
+            element.addEventListener('click', () => {
+                const isDark = !document.documentElement.classList.contains('dark');
+                setDarkMode(isDark);
+                console.log(`Theme toggled to: ${isDark ? 'dark' : 'light'}`);
+            });
+        }
+    };
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            setDarkMode(!document.documentElement.classList.contains('dark'));
-        });
-    }
+    // Setup both toggles
+    setupToggle(themeToggle);
+    setupToggle(mobileThemeToggle);
 
-    if (mobileThemeToggle) {
-        mobileThemeToggle.addEventListener('click', () => {
-            setDarkMode(!document.documentElement.classList.contains('dark'));
-        });
-    }
-
+    // Watch for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (!localStorage.theme) {
             setDarkMode(e.matches);
