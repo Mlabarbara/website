@@ -7,30 +7,45 @@ export const navItems = [
 ];
 
 export function generateNavItems() {
-    // More flexible selector
-    const desktopNav = document.querySelector('nav .desktop-menu') || 
-                      document.querySelector('.hidden.md\\:flex') ||
-                      document.querySelector('[data-nav="desktop"]');
+    console.log('Generating nav items...');
     
-    console.log('Attempting to generate nav items');
+    // Desktop navigation
+    const desktopNav = document.querySelector('nav .hidden.md\\:flex.items-center.space-x-8');
     console.log('Desktop nav found:', desktopNav);
     
-    if (!desktopNav) {
-        console.error('Desktop nav not found - retrying in 100ms');
-        setTimeout(generateNavItems, 100); // Retry if not found
-        return;
+    if (desktopNav) {
+        // Clear existing items
+        desktopNav.innerHTML = '';
+        
+        // Add navigation items
+        navItems.forEach(item => {
+            const link = document.createElement('a');
+            link.href = item.href;
+            link.className = 'text-white hover:text-blue-200 transition-colors duration-200';
+            link.textContent = item.text;
+            desktopNav.appendChild(link);
+        });
+    } else {
+        console.error('Desktop nav container not found');
     }
+
+    // Mobile navigation
+    const mobileMenu = document.getElementById('mobile-menu');
+    console.log('Mobile menu found:', mobileMenu);
     
-    // Clear existing items
-    desktopNav.innerHTML = '';
-    
-    // Add navigation items
-    navItems.forEach(item => {
-        const link = document.createElement('a');
-        link.href = item.href;
-        link.className = 'nav-link text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200';
-        link.setAttribute('data-nav-link', '');
-        link.textContent = item.text;
-        desktopNav.appendChild(link);
-    });
+    if (mobileMenu) {
+        // Clear existing items
+        mobileMenu.innerHTML = '';
+        
+        // Add navigation items
+        navItems.forEach(item => {
+            const link = document.createElement('a');
+            link.href = item.href;
+            link.className = 'block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700';
+            link.textContent = item.text;
+            mobileMenu.appendChild(link);
+        });
+    } else {
+        console.error('Mobile menu container not found');
+    }
 }
