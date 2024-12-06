@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Mark LaBarbara</title>
+    
+    <!-- Immediate theme initialization -->
+    <script>
+        const prefersDark = localStorage.theme === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', prefersDark);
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../assets/images/favicon-modern2.svg" type="image/svg+xml">
@@ -76,13 +84,30 @@
         </section>
     </main>
 
-    <script type="module" src="../js/main.js"></script>
     <script type="module">
-        fetch('../components/nav/nav.html')
-            .then(response => response.text())
-            .then(html => {
+        async function initializePage() {
+            try {
+                // Load navigation
+                const response = await fetch('../components/nav/nav.html');
+                const html = await response.text();
                 document.getElementById('nav-container').innerHTML = html;
-            });
+                
+                // Wait for DOM to update
+                await new Promise(resolve => setTimeout(resolve, 100));
+                
+                // Import and initialize main module
+                await import('../js/main.js');
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
+        }
+        
+        // Initialize as soon as DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePage);
+        } else {
+            initializePage();
+        }
     </script>
 </body>
 </html>
