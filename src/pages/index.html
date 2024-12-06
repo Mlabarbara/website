@@ -62,14 +62,18 @@
 
     <script type="module">
         // load Navigation first
-        await fetch('../components/nav/nav.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('nav-container').innerHTML = html;
-            });
+        async function initializePage() {
 
-        // initialize main.js
-        import '../js/main.js';
+            await fetch('../components/nav/nav.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('nav-container').innerHTML = html;
+                });
+            
+            // Then import main.js
+            await import('../js/main.js');
+        }
+        initializePage();
     </script>
 </body>
 </html>
