@@ -1,0 +1,29 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nightSky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:0.98"/>
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.98"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square background -->
+  <rect x="5" y="5" width="90" height="90" rx="20"
+        fill="url(#nightSky)"
+        filter="drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))"/>
+  
+  <!-- Subtle grid pattern -->
+  <path d="M20 50 H80" stroke="#60a5fa" stroke-opacity="0.1" stroke-width="1"/>
+  <path d="M50 20 V80" stroke="#60a5fa" stroke-opacity="0.1" stroke-width="1"/>
+  
+  <!-- Modern text -->
+  <text x="50" y="58" 
+        font-family="'Poppins', system-ui, sans-serif" 
+        font-size="26" 
+        font-weight="600" 
+        text-anchor="middle" 
+        fill="#60a5fa"
+        fill-opacity="0.9"
+        letter-spacing="0">
+    M·LaB
+  </text>
+</svg>

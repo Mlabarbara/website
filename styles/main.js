@@ -1,6 +1,6 @@
 // main.js //
 // Theme toggle functionality
-import { generateNavItems } from './config.js';
+//import { generateNavItems } from './config.js';
 
 function setDarkMode(isDark) {
     if (isDark) {
@@ -67,7 +67,7 @@ function initializeAnimations() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    generateNavItems(); 
+//    generateNavItems(); 
     initializeTheme();
     initializeMobileMenu();
     initializeAnimations();

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mark LaBarbara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/images/favicon-modern2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <div id="nav-container"></div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Contact Header Section -->
+        <section class="profile-section rounded-xl p-8 text-white mb-12 animate-fade-in hover-float">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl font-bold mb-4">Let's Connect</h1>
+                    <h2 class="text-xl font-semibold mb-4">Contact Information</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Links Section -->
+        <section class="content-card rounded-xl p-8 animate-fade-in hover-float bg-white dark:bg-gray-800" style="animation-delay: 0.2s">
+            <div class="space-y-6">
+                <a href="mailto:mark@labarbara.cc" class="flex items-center space-x-3 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span class="text-lg">mark@labarbara.cc</span>
+                </a>
+                <a href="https://www.linkedin.com/in/mark-it/" target="_blank" class="flex items-center space-x-3 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span class="text-lg">LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/Mlabarbara" target="_blank" class="flex items-center space-x-3 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                    <span class="text-lg">GitHub Profile</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module">
+        fetch('../components/nav/nav.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('nav-container').innerHTML = html;
+            });
+    </script>
+</body>
+</html>
