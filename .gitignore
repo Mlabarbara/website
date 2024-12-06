@@ -15,6 +15,11 @@
 *.swp
 *.swo
 
+#git files
+.gitignore
+.gitattributes
+/.git
+
 # OS files
 .DS_Store
 Thumbs.db
