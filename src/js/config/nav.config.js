@@ -1,9 +1,9 @@
 export const navItems = [
     { href: '/pages/index.html', text: 'Home' },
-    { href: '/pages/projects.html', text: 'Projects' },
-    { href: '/pages/contact.html', text: 'Contact' },
+    { href: '/pages/blog.html', text: 'Blog' },
     { href: '/pages/github.html', text: 'GitHub' },
-    { href: '/pages/blog.html', text: 'Blog' }
+    { href: '/pages/projects.html', text: 'Projects' },
+    { href: '/pages/contact.html', text: 'Contact' }
 ];
 
 export function generateNavItems() {
