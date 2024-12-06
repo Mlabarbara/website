@@ -9,11 +9,10 @@ export function setDarkMode(isDark) {
 }
 
 export function initializeTheme() {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        setDarkMode(true);
-    } else {
-        setDarkMode(false);
-    }
+    // Set theme immediately
+    const prefersDark = localStorage.theme === 'dark' || 
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.classList.toggle('dark', prefersDark);
 
     const themeToggle = document.getElementById('theme-toggle');
     const mobileThemeToggle = document.getElementById('theme-toggle-mobile');

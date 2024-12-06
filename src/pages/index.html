@@ -61,19 +61,24 @@
     </main>
 
     <script type="module">
-        // load Navigation first
         async function initializePage() {
-
-            await fetch('../components/nav/nav.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('nav-container').innerHTML = html;
-                });
-            
-            // Then import main.js
-            await import('../js/main.js');
+            try {
+                const response = await fetch('../components/nav/nav.html');
+                const html = await response.text();
+                document.getElementById('nav-container').innerHTML = html;
+                
+                // Wait a moment for the DOM to update
+                await new Promise(resolve => setTimeout(resolve, 100));
+                
+                // Now import and initialize
+                const mainModule = await import('../js/main.js');
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
         }
-        initializePage();
+        document.addEventListener('DOMContentLoaded', () => {
+            initializePage();
+        });
     </script>
 </body>
 </html>
