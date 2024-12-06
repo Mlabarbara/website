@@ -18,7 +18,7 @@ export function generateNavItems() {
         navItems.forEach(item => {
             const link = document.createElement('a');
             link.href = item.href;
-            link.className = 'text-white hover:text-blue-200 transition-colors duration-200';
+            link.className = 'text-white hover:text-blue-200 transform hover:scale-105 transition-all duration-200';
             link.textContent = item.text;
             desktopNav.appendChild(link);
         });
@@ -35,7 +35,7 @@ export function generateNavItems() {
         navItems.forEach(item => {
             const link = document.createElement('a');
             link.href = item.href;
-            link.className = 'block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700';
+            link.className = 'block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 transform hover:scale-105 transition-all duration-200';
             link.textContent = item.text;
             mobileMenu.appendChild(link);
         });
