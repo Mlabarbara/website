@@ -7,11 +7,8 @@ export const navItems = [
 ];
 
 export function generateNavItems() {
-    console.log('Generating nav items...');
-    
     // Desktop navigation
     const desktopNav = document.querySelector('nav .hidden.md\\:flex.items-center.space-x-8');
-    console.log('Desktop nav found:', desktopNav);
     
     if (desktopNav) {
         // Clear existing items
@@ -25,13 +22,10 @@ export function generateNavItems() {
             link.textContent = item.text;
             desktopNav.appendChild(link);
         });
-    } else {
-        console.error('Desktop nav container not found');
     }
 
     // Mobile navigation
     const mobileMenu = document.getElementById('mobile-menu');
-    console.log('Mobile menu found:', mobileMenu);
     
     if (mobileMenu) {
         // Clear existing items
@@ -45,7 +39,5 @@ export function generateNavItems() {
             link.textContent = item.text;
             mobileMenu.appendChild(link);
         });
-    } else {
-        console.error('Mobile menu container not found');
     }
 }

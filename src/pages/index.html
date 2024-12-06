@@ -71,8 +71,6 @@
     <script type="module">
         async function initializePage() {
             try {
-                console.log('Initializing page...');
-                
                 // Load navigation
                 const response = await fetch('../components/nav/nav.html');
                 const html = await response.text();
@@ -82,8 +80,7 @@
                 await new Promise(resolve => setTimeout(resolve, 100));
                 
                 // Import and initialize main module
-                const mainModule = await import('../js/main.js');
-                console.log('Main module loaded');
+                await import('../js/main.js');
             } catch (error) {
                 console.error('Error initializing page:', error);
             }
