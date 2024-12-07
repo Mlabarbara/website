@@ -20,6 +20,9 @@
 .gitattributes
 /.git
 
+#other stuff 
+/icons
+
 # OS files
 .DS_Store
 Thumbs.db
