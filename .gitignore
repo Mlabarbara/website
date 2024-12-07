@@ -19,7 +19,7 @@
 .gitignore
 .gitattributes
 /.git
-
+/old
 #other stuff 
 /icons
 
