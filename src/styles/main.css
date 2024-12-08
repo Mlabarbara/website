@@ -76,18 +76,6 @@ p {
     width: 80%;
 }
 
-/* Profile section styles */
-.profile-section {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
-    transition: background 0.3s ease;
-    padding: 1.5rem; /* p-6 */
-    margin-bottom: 2.5rem; /* mb-10 */
-}
-
-html.dark .profile-section {
-    background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
-}
-
 /* Headshot container styles */
 .headshot-container {
     width: 200px;
@@ -117,7 +105,6 @@ html.dark .profile-section {
 /* Card styles */
 .content-card {
     background: white;
-    border-radius: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 2rem; /* p-8 */
@@ -128,7 +115,17 @@ html.dark .content-card {
     background: rgba(31, 41, 55, 0.95);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
+/* Profile section styles */
+.profile-section {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transition: background 0.3s ease;
+    padding: 1.5rem; /* p-6 */
+    margin-bottom: 2.5rem; /* mb-10 */
+}
 
+html.dark .profile-section {
+    background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
+}
 /* Hover effects */
 .hover-float {
     transition: all 0.3s ease;
