@@ -14,8 +14,8 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="icon" href="./assets/images/favicon-modern2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="images/favicon-modern2.svg" type="image/svg+xml">
 
     <script>
         tailwind.config = {
@@ -31,10 +31,64 @@
     </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-    <div id="nav-container"></div>
+    <!-- Navigation -->
+    <nav class="bg-blue-900 dark:bg-gray-800 shadow-lg transition-colors duration-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-white text-xl font-bold">M.LaB</span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-blue-200">Home</a>
+                    <a href="blog.html" class="nav-link text-white hover:text-blue-200">Blog</a>
+                    <a href="projects.html" class="nav-link text-white hover:text-blue-200">Projects</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-blue-200">Contact</a>
+                    <a href="github.html" class="nav-link text-white hover:text-blue-200">GitHub</a>
+                    <button id="theme-toggle" class="p-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+                        <!-- Sun icon -->
+                        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <!-- Moon icon -->
+                        <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="theme-toggle-mobile" class="p-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+                        <!-- Sun icon -->
+                        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <!-- Moon icon -->
+                        <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-white hover:bg-blue-800 dark:hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Home</a>
+                <a href="blog.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Blog</a>
+                <a href="projects.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Projects</a>
+                <a href="contact.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Contact</a>
+                <a href="github.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">GitHub</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 py-12">
+        
         <!-- Project Overview -->
         <section class="content-card rounded-xl p-8 mb-8 animate-fade-in hover-float">
             <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
@@ -61,39 +115,203 @@
                     </svg>
                 </div>
                 <div id="prerequisites-content" class="hidden mt-4 text-gray-600 dark:text-gray-300">
-                    <ul class="space-y-2">
-                        <li>• Virtual Machine Software (VirtualBox/VMware)</li>
-                        <li>• Linux Distribution ISO</li>
-                        <li>• Basic networking knowledge</li>
-                        <li>• Command line experience</li>
-                    </ul>
+                    <!-- Hardware Requirements -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Hardware Requirements</h3>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Server Hardware:</strong> 64-bit CPU with Intel VT/AMD-V virtualization support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Memory:</strong> Minimum 2GB RAM (8GB+ recommended for multiple VMs)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Storage:</strong> Minimum 16GB (SSD recommended for better performance)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Network:</strong> Compatible network interface card with Internet connectivity</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Software Requirements -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Software Requirements</h3>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Proxmox VE:</strong> Latest ISO from official website</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Development Tools:</strong> SSH client, Git, Python 3.x</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Web Browser:</strong> Modern browser for Proxmox web interface</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Network Requirements -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Network Requirements</h3>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Static IP Address:</strong> Required for Proxmox host</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Port Access:</strong> 8006 (Web UI), 22 (SSH), 3128 (Package Management)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>DNS Resolution:</strong> Proper DNS setup for network connectivity</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Technical Knowledge -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Required Knowledge</h3>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>System Administration:</strong> Basic Linux command line experience</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>Networking:</strong> Understanding of IP addressing, VLANs, and DNS</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span><strong>DevOps:</strong> Familiarity with YAML syntax for Ansible</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Installation Steps -->
-        <section class="content-card rounded-xl p-8 animate-fade-in hover-float">
-            <div onclick="toggleSection('installation')" style="cursor: pointer;">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Installation Steps</h2>
-                    <svg class="w-6 h-6 transform transition-transform duration-200" id="installation-arrow"
-                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </div>
-                <div id="installation-content" class="hidden mt-4 text-gray-600 dark:text-gray-300">
-                    <ol class="list-decimal list-inside space-y-4">
-                        <li>Download and install prerequisites</li>
-                        <li>Configure network settings</li>
-                        <li>Set up virtual environment</li>
-                        <li>Install required packages</li>
-                    </ol>
+        <section class="max-w-6xl mx-auto px-4 py-12">
+            <div class="content-card rounded-xl p-8 mb-8 animate-fade-in hover-float">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8">Installation Process</h2>
+                
+                <!-- Installation Steps Accordion -->
+                <div class="space-y-6" id="installation-accordion">
+                    <!-- Step 1: Initial Setup -->
+                    <div class="installation-step" data-step="1">
+                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                            <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">01</span>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Initial Server Setup</h3>
+                            <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                        <div class="installation-content hidden p-6">
+                            <div class="prose dark:prose-invert max-w-none">
+                                <h4 class="text-lg font-semibold mb-4">Pre-installation Tasks:</h4>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">✓</span>
+                                        <span>Download latest Proxmox VE ISO from the official website</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">✓</span>
+                                        <span>Create bootable USB using tools like Rufus or Etcher</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">✓</span>
+                                        <span>Ensure BIOS/UEFI settings have virtualization enabled</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Step 2: Proxmox Installation -->
+                    <div class="installation-step" data-step="2">
+                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                            <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">02</span>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Proxmox Installation</h3>
+                            <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                        <div class="installation-content hidden p-6">
+                            <div class="prose dark:prose-invert max-w-none">
+                                <h4 class="text-lg font-semibold mb-4">Installation Process:</h4>
+                                <ol class="space-y-4">
+                                    <li class="flex items-start">
+                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">1</span>
+                                        <div>
+                                            <p class="font-semibold">Boot from USB</p>
+                                            <p class="text-gray-600 dark:text-gray-300">Select the USB drive from boot menu and choose "Install Proxmox VE"</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">2</span>
+                                        <div>
+                                            <p class="font-semibold">Drive Configuration</p>
+                                            <p class="text-gray-600 dark:text-gray-300">Select target disk and configure partitioning (default options recommended)</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">3</span>
+                                        <div>
+                                            <p class="font-semibold">Network Setup</p>
+                                            <p class="text-gray-600 dark:text-gray-300">Configure hostname, IP address, and gateway</p>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Step 3: Initial Configuration -->
+                    <div class="installation-step" data-step="3">
+                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                            <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">03</span>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Initial Configuration</h3>
+                            <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                        <div class="installation-content hidden p-6">
+                            <div class="prose dark:prose-invert max-w-none">
+                                <h4 class="text-lg font-semibold mb-4">Post-Installation Setup:</h4>
+                                <div class="space-y-6">
+                                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                        <h5 class="font-semibold mb-2">Repository Configuration</h5>
+                                        <pre class="bg-gray-800 text-gray-100 p-3 rounded"><code>apt update
+        apt upgrade -y
+        apt install vim -y</code></pre>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                        <h5 class="font-semibold mb-2">SSH Configuration</h5>
+                                        <p class="mb-2">Enable SSH access and configure key-based authentication:</p>
+                                        <pre class="bg-gray-800 text-gray-100 p-3 rounded"><code>vim /etc/ssh/sshd_config
+        # Enable these lines:
+        PermitRootLogin yes
+        PubkeyAuthentication yes</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        
     </main>
 
-    <script src="./assets/js/main.js"></script>
+    <script src="styles/main.js"></script>
     <script>
         function toggleSection(sectionId) {
             const content = document.getElementById(`${sectionId}-content`);
@@ -102,6 +320,42 @@
             content.classList.toggle('hidden');
             arrow.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
         }
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.installation-step');
+            
+            // Intersection Observer for scroll-based animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            steps.forEach(step => {
+                observer.observe(step);
+                
+                const header = step.querySelector('div:first-child');
+                const content = step.querySelector('.installation-content');
+                const arrow = step.querySelector('svg');
+                
+                header.addEventListener('click', () => {
+                    const isOpen = !content.classList.contains('hidden');
+                    
+                    // Close all other sections
+                    steps.forEach(otherStep => {
+                        if (otherStep !== step) {
+                            otherStep.querySelector('.installation-content').classList.add('hidden');
+                            otherStep.querySelector('svg').style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    
+                    // Toggle current section
+                    content.classList.toggle('hidden');
+                    arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            });
+        });
     </script>
 </body>
 </html>
