@@ -19,6 +19,9 @@
 .gitignore
 .gitattributes
 /.git
+/old
+#other stuff 
+/icons
 
 # OS files
 .DS_Store

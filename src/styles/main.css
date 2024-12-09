@@ -1,4 +1,3 @@
-/* main.css */
 /* Base styles */
 :root {
     color-scheme: light dark;
@@ -8,6 +7,34 @@ body {
     font-family: 'Inter', sans-serif;
     transition-property: color, background-color;
     transition-duration: 200ms;
+}
+
+/* Layout container styles */
+main {
+    max-width: 64rem; /* matches max-w-5xl */
+    margin: 0 auto;
+    padding: 2.5rem 1rem; /* py-10 px-4 */
+}
+
+/* Typography scales */
+h1 {
+    font-size: 3rem; /* text-5xl */
+    line-height: 1.2;
+}
+
+h2.section-title {
+    font-size: 1.875rem; /* text-3xl */
+    line-height: 1.3;
+}
+
+.subtitle {
+    font-size: 1.5rem; /* text-2xl */
+    line-height: 1.4;
+}
+
+p {
+    font-size: 1.125rem; /* text-lg */
+    line-height: 1.75;
 }
 
 /* Animations */
@@ -49,16 +76,6 @@ body {
     width: 80%;
 }
 
-/* Profile section styles */
-.profile-section {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
-    transition: background 0.3s ease;
-}
-
-html.dark .profile-section {
-    background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
-}
-
 /* Headshot container styles */
 .headshot-container {
     width: 200px;
@@ -88,16 +105,27 @@ html.dark .profile-section {
 /* Card styles */
 .content-card {
     background: white;
-    border-radius: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem; /* p-8 */
+    margin-bottom: 1.5rem; /* mb-6 */
 }
 
 html.dark .content-card {
     background: rgba(31, 41, 55, 0.95);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
+/* Profile section styles */
+.profile-section {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transition: background 0.3s ease;
+    padding: 1.5rem; /* p-6 */
+    margin-bottom: 2.5rem; /* mb-10 */
+}
 
+html.dark .profile-section {
+    background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
+}
 /* Hover effects */
 .hover-float {
     transition: all 0.3s ease;
@@ -116,10 +144,11 @@ html.dark .hover-float:hover {
 .skill-tag {
     background-color: rgba(37, 99, 235, 0.8);
     transition: all 0.3s ease;
-    padding: 0.25rem 0.75rem;
+    padding: 0.625rem 1rem; /* py-1.5 px-4 */
     border-radius: 9999px;
+    font-size: 1rem; /* text-base */
     color: white;
-    font-size: 0.875rem;
+    margin: 0.375rem; /* gap-3 equivalent */
 }
 
 html.dark .skill-tag {
@@ -136,20 +165,30 @@ html.dark .skill-tag:hover {
     background-color: rgba(37, 99, 235, 0.6);
 }
 
-/* Dark mode specific text colors */
-html.dark .dark\:text-white {
-    color: white;
+/* Section spacing */
+.section-gap {
+    gap: 1.5rem; /* gap-6 */
 }
 
-html.dark .dark\:text-gray-300 {
-    color: #d1d5db;
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .section-content {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .text-container {
+        text-align: left;
+    }
 }
 
-html.dark .dark\:bg-gray-900 {
-    background-color: rgb(17, 24, 39);
+@media (max-width: 767px) {
+    .text-container {
+        text-align: center;
+    }
+    
+    main {
+        padding: 1.5rem 1rem;
+    }
 }
-
-html.dark .dark\:bg-gray-800 {
-    background-color: rgb(31, 41, 55);
-}
-/* end main.css */
