@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSU Project - Infrastructure as Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .expand-card {
+            transition: max-height 0.3s ease-out;
+            max-height: 100px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .expand-card.expanded {
+            max-height: 2000px;
+        }
+        
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="bg-blue-900 dark:bg-gray-800 shadow-lg transition-colors duration-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-white text-xl font-bold">M.LaB</span>
+                </div>       
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-blue-200">Home</a>
+                    <a href="blog.html" class="nav-link text-white hover:text-blue-200">Blog</a>
+                    <a href="projects.html" class="nav-link text-white hover:text-blue-200">Projects</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-blue-200">Contact</a>
+                    <a href="github.html" class="nav-link text-white hover:text-blue-200">GitHub</a>
+                    <button id="theme-toggle" class="p-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+                        <!-- Sun icon -->
+                        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <!-- Moon icon -->
+                        <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="theme-toggle-mobile" class="p-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Home</a>
+                <a href="blog.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Blog</a>
+                <a href="projects.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Projects</a>
+                <a href="contact.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Contact</a>
+                <a href="github.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <!-- Blog Header -->
+        <div class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+                Setting Up a Complete Development Environment with Proxmox, Ansible, and Terraform
+            </h1>
+            <div class="flex items-center text-gray-600 dark:text-gray-400 mb-8">
+                <span class="mr-4">December 5, 2024</span>
+                <span class="mr-4">|</span>
+                <span>Infrastructure as Code</span>
+            </div>
+            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                A comprehensive guide to creating an automated development environment using infrastructure as code principles.
+            </p>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="space-y-6">
+            <!-- Prerequisites Section -->
+            <div class="content-card expand-card" onclick="toggleExpand(this)">
+                <div class="p-6">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Prerequisites</h2>
+                        <svg class="expand-icon w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="mt-4 text-gray-600 dark:text-gray-300">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Server hardware requirements</li>
+                            <li>Software prerequisites</li>
+                            <li>Network configuration needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation Section -->
+            <div class="content-card expand-card" onclick="toggleExpand(this)">
+                <div class="p-6">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Installation Steps</h2>
+                        <svg class="expand-icon w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                    <div class="mt-4 text-gray-600 dark:text-gray-300">
+                        <!-- Content here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional sections following the same pattern -->
+        </div>
+    </main>
+
+    <script>
+        function toggleExpand(element) {
+            element.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
