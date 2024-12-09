@@ -156,4 +156,39 @@ html.dark .dark\:bg-gray-900 {
 html.dark .dark\:bg-gray-800 {
     background-color: rgb(31, 41, 55);
 }
+
+
+
+
+/* begin the section for msuu-project display */
+.installation-step {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.installation-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.installation-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.installation-content:not(.hidden) {
+    max-height: 1000px;
+}
+
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.prose pre {
+    margin: 0;
+}
 /* main.css end */ 
