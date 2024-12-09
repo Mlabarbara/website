@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark LaBarbara - Cybersecurity Professional</title>
+    
+    <!-- Immediate theme initialization -->
+    <script>
+        const prefersDark = localStorage.theme === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', prefersDark);
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/images/favicon-modern2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <div id="nav-container"></div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Profile Section -->
+        <section class="profile-section content-card rounded-xl p-8 text-white mb-12 animate-fade-in hover-float">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="headshot-container">
+                    <img src="../assets/images/headshot.webp" alt="Mark LaBarbara" class="w-full h-full object-contain">
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl font-bold mb-4">Mark LaBarbara</h1>
+                    <h2 class="text-xl font-semibold mb-4">Cybersecurity Professional</h2>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm text-white">Network Engineering</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm text-white">System Administration</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-sm text-white">Security+</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="content-card rounded-xl p-8 animate-fade-in hover-float" style="animation-delay: 0.2s">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">About Me</h2>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                I'm a dedicated Cybersecurity professional completing my BS in Cybersecurity at MSU Denver (graduating December 2024). 
+                My passion for technology drives both my career and academic pursuits. As a network engineer and systems administrator, 
+                I specialize in managing complex network systems and implementing robust cybersecurity measures.
+            </p>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                In my free time, I enjoy exploring new technologies, working on personal projects, and contributing to open-source initiatives. 
+                My expertise spans across network engineering, systems administration, and cybersecurity, allowing me to provide comprehensive 
+                technical solutions while ensuring strong security practices.
+            </p>
+        </section>
+    </main>
+
+    <script type="module">
+        async function initializePage() {
+            try {
+                // Load navigation
+                const response = await fetch('../components/nav/nav.html');
+                const html = await response.text();
+                document.getElementById('nav-container').innerHTML = html;
+                
+                // Wait for DOM to update
+                await new Promise(resolve => setTimeout(resolve, 100));
+                
+                // Import and initialize main module
+                await import('../js/main.js');
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
+        }
+        
+        // Initialize as soon as DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePage);
+        } else {
+            initializePage();
+        }
+    </script>
+</body>
+</html>

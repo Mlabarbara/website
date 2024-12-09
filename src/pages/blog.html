@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mark LaBarbara</title>
+    
+    <!-- Immediate theme initialization -->
+    <script>
+        const prefersDark = localStorage.theme === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', prefersDark);
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/images/favicon-modern2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <div id="nav-container"></div>
+    
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Blog Header Section -->
+        <section class="content-card p-8 animate-fade-in hover-float mb-12">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">Blog</h1>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                Welcome to my blog where I share thoughts and insights about technology, development, and more.
+            </p>
+        </section>
+
+        <!-- Blog Posts -->
+        <section class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Blog Post Card Template -->
+            <article class="content-card p-6 animate-fade-in hover-float">
+                <img src="/api/placeholder/400/200" alt="Blog post thumbnail" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">Getting Started with Web Development</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                    Learn the fundamentals of web development and how to begin your journey as a developer.
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Dec 5, 2024</span>
+                    <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">Read More →</a>
+                </div>
+            </article>
+
+            <!-- Additional Blog Post Cards -->
+            <article class="content-card p-6 animate-fade-in hover-float" style="animation-delay: 0.2s">
+                <img src="/api/placeholder/400/200" alt="Blog post thumbnail" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">Modern CSS Techniques</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                    Explore the latest CSS features and how they're changing the way we style websites.
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Dec 3, 2024</span>
+                    <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">Read More →</a>
+                </div>
+            </article>
+
+            <article class="content-card p-6 animate-fade-in hover-float" style="animation-delay: 0.4s">
+                <img src="/api/placeholder/400/200" alt="Blog post thumbnail" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">JavaScript Best Practices</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                    Essential JavaScript patterns and practices for writing maintainable code.
+                </p>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Dec 1, 2024</span>
+                    <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">Read More →</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script type="module">
+        async function initializePage() {
+            try {
+                // Load navigation
+                const response = await fetch('../components/nav/nav.html');
+                const html = await response.text();
+                document.getElementById('nav-container').innerHTML = html;
+                
+                // Wait for DOM to update
+                await new Promise(resolve => setTimeout(resolve, 100));
+                
+                // Import and initialize main module
+                await import('../js/main.js');
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
+        }
+        
+        // Initialize as soon as DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePage);
+        } else {
+            initializePage();
+        }
+    </script>
+</body>
+</html>

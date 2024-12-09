@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ISO/IEC 27000 Series Mnemonic Device</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .mappings {
+      margin-top: 20px;
+    }
+    .mapping {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ISO/IEC 27000 Series Mnemonic Device</h1>
+  <p>Use the following sentence to remember the mappings:</p>
+  <p id="sentence">Implement InfoSec Measures In Intelligent Audits</p>
+  <div class="mappings">
+    <div class="mapping">
+      <span>I</span> - ISO/IEC 27002: Code of practice for information security controls
+    </div>
+    <div class="mapping">
+      <span>I</span> - ISO/IEC 27003: ISMS implementation guidance
+    </div>
+    <div class="mapping">
+      <span>M</span> - ISO/IEC 27004: ISMS monitoring, measurement, analysis, and evaluation
+    </div>
+    <div class="mapping">
+      <span>I</span> - ISO/IEC 27005: Information security risk management
+    </div>
+    <div class="mapping">
+      <span>I</span> - ISO/IEC 27007: ISMS auditing guidelines
+    </div>
+    <div class="mapping">
+      <span>A</span> - Auditing (remember to audit your ISMS)
+    </div>
+  </div>
+  <button id="toggle-button">Toggle Sentence</button>
+
+  <script>
+    const sentenceElement = document.getElementById('sentence');
+    const toggleButton = document.getElementById('toggle-button');
+
+    toggleButton.addEventListener('click', () => {
+      if (sentenceElement.textContent === 'Implement InfoSec Measures In Intelligent Audits') {
+        sentenceElement.textContent = 'Imagine Insane Monkeys Invading Islands';
+      } else {
+        sentenceElement.textContent = 'Implement InfoSec Measures In Intelligent Audits';
+      }
+    });
+  </script>
+</body>
+</html>
