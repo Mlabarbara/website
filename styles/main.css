@@ -1,5 +1,9 @@
-/* main.css */
+/* main.css begin*/
 /* Base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     color-scheme: light dark;
 }
@@ -152,4 +156,4 @@ html.dark .dark\:bg-gray-900 {
 html.dark .dark\:bg-gray-800 {
     background-color: rgb(31, 41, 55);
 }
-/* end main.css */
+/* main.css end */ 
