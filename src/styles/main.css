@@ -118,6 +118,7 @@ html.dark .content-card {
 /* Profile section styles */
 .profile-section {
     background: linear-gradient(135deg, #2563eb, #1e40af);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: background 0.3s ease;
     padding: 1.5rem; /* p-6 */
     margin-bottom: 2.5rem; /* mb-10 */
@@ -125,6 +126,7 @@ html.dark .content-card {
 
 html.dark .profile-section {
     background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 /* Hover effects */
 .hover-float {
