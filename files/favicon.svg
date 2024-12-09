@@ -1,0 +1,43 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background hexagon -->
+  <path d="M50 5 
+           L85 25
+           L85 75
+           L50 95
+           L15 75
+           L15 25 Z" 
+        fill="#2563eb"/>
+  
+  <!-- Decorative inner hexagon -->
+  <path d="M50 15
+           L77 31
+           L77 69
+           L50 85
+           L23 69
+           L23 31 Z"
+        fill="none"
+        stroke="#60a5fa"
+        stroke-width="2"/>
+  
+  <!-- MDL text -->
+  <text x="50" y="62" 
+        font-family="Inter, Arial, sans-serif" 
+        font-size="28" 
+        font-weight="700" 
+        text-anchor="middle" 
+        fill="white">
+    MDL
+  </text>
+  
+  <!-- Top decorative line -->
+  <path d="M35 30 L65 30" 
+        stroke="#60a5fa" 
+        stroke-width="3" 
+        stroke-linecap="round"/>
+  
+  <!-- Bottom decorative line -->
+  <path d="M35 70 L65 70" 
+        stroke="#60a5fa" 
+        stroke-width="3" 
+        stroke-linecap="round"/>
+</svg>
