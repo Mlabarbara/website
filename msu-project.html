@@ -12,11 +12,10 @@
         document.documentElement.classList.toggle('dark', prefersDark);
     </script>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/outputMain.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
     <link rel="icon" href="images/favicon-modern2.svg" type="image/svg+xml">
-
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -88,7 +87,6 @@
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 py-12">
-        
         <!-- Project Overview -->
         <section class="content-card rounded-xl p-8 mb-8 animate-fade-in hover-float">
             <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
@@ -201,11 +199,10 @@
                 </div>
             </div>
         </section>
-
+        <!-- Begin the installtion portion -->
         <section class="max-w-6xl mx-auto px-4 py-12">
             <div class="content-card rounded-xl p-8 mb-8 animate-fade-in hover-float">
                 <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8">Installation Process</h2>
-                
                 <!-- Installation Steps Accordion -->
                 <div class="space-y-6" id="installation-accordion">
                     <!-- Step 1: Initial Setup -->
@@ -309,30 +306,49 @@
                         </div>
                         <div class="installation-content hidden p-6">
                             <div class="prose dark:prose-invert max-w-none">
-                                <h4 class="text-lg font-semibold mb-4">Installation Process:</h4>
-                                <ol class="space-y-4">
-                                    <li class="flex items-start">
-                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">1</span>
-                                        <div>
-                                            <p class="font-semibold">Boot from USB</p>
-                                            <p class="text-gray-600 dark:text-gray-300">Select the USB drive from boot menu and choose "Install Proxmox VE"</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">2</span>
-                                        <div>
-                                            <p class="font-semibold">Drive Configuration</p>
-                                            <p class="text-gray-600 dark:text-gray-300">Select target disk and configure partitioning (default options recommended)</p>
-                                        </div>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">3</span>
-                                        <div>
-                                            <p class="font-semibold">Network Setup</p>
-                                            <p class="text-gray-600 dark:text-gray-300">Configure hostname, IP address, and gateway</p>
-                                        </div>
-                                    </li>
-                                </ol>
+                                <div class="mb-6">
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        The installation process consists of three main phases. For detailed instructions, you can refer to our 
+                                        <a href="msu-project/proxmox-installation.html" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500">MSU Project Installation Guide</a> 
+                                        or the <a href="https://pve.proxmox.com/wiki/Installation" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500">Official Proxmox Documentation</a>.
+                                    </p>
+                                </div>
+                
+                                <div class="space-y-6">
+                
+                                    <!-- Phase 2: Base Installation -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Phase 2: Base Installation</h4>
+                                        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                                            <li>Boot from USB and start installer</li>
+                                            <li>Configure storage and partitioning</li>
+                                            <li>Set up network and system settings</li>
+                                            <li>Complete base system installation</li>
+                                        </ul>
+                                    </div>
+                
+                                    <!-- Phase 3: Initial Configuration -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Phase 3: Initial Configuration</h4>
+                                        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                                            <li>Access web interface (https://your-server-ip:8006)</li>
+                                            <li>Configure storage and networking</li>
+                                            <li>Update system packages</li>
+                                            <li>Enable required services</li>
+                                        </ul>
+                                    </div>
+                
+                                    <!-- MSU-Specific Notes -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">MSU Project Notes</h4>
+                                        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                                            <li>Use a static IP address for stable remote access</li>
+                                            <li>Enable SSH for Ansible automation</li>
+                                            <li>Configure system for Kasm Workspaces compatibility</li>
+                                            <li>Follow security hardening guidelines</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
