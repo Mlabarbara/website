@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon-modern2.svg" type="image/svg+xml">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -21,127 +22,6 @@
             }
         }
     </script>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes floatUp {
-            from { transform: translateY(0); }
-            to { transform: translateY(-8px); }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        .hover-float {
-            transition: all 0.3s ease;
-        }
-
-        .hover-float:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-        }
-        /* Dark mode hover effect */
-        .dark .hover-float:hover {
-            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.15);
-        }
-        .nav-link {
-            position: relative;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background-color: #60a5fa;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after {
-            width: 80%;
-        }
-
-        .profile-section {
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            transition: background 0.3s ease;
-        }
-
-        .dark .profile-section {
-            background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
-        }
-
-        .headshot-container {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .headshot-container:hover {
-            transform: scale(1.02);
-            border-color: white;
-            box-shadow: 0 6px 12px -1px rgba(0, 0, 0, 0.2);
-        }
-
-        .headshot-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-            transform: scale(1.5);
-        }
-
-        .content-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .dark .content-card {
-            background: rgba(31, 41, 55, 0.95);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-        }
-        .content-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-        }
-        .dark .content-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.15); /* Subtle blue glow in dark mode */
-        }
-
-        .skill-tag {
-            background-color: rgba(37, 99, 235, 0.8);
-            transition: all 0.3s ease;
-        }
-
-        .dark .skill-tag {
-            background-color: rgba(37, 99, 235, 0.4);
-            backdrop-filter: blur(4px);
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-2px);
-            background-color: rgba(37, 99, 235, 1);
-        }
-
-        .dark .skill-tag:hover {
-            background-color: rgba(37, 99, 235, 0.6);
-        }
-    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
     <!-- Navigation -->
