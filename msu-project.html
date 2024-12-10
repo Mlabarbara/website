@@ -217,23 +217,83 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </div>
-                        <div class="installation-content hidden p-6">
+                        <div class="installation-content hidden p-6 bg-gray-900">
                             <div class="prose dark:prose-invert max-w-none">
-                                <h4 class="text-lg font-semibold mb-4 dark:text-gray-100">Pre-installation Tasks:</h4>
-                                <ul class="space-y-4">
-                                    <li class="flex items-start">
-                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-100">✓</span>
-                                        <span class="dark:text-blue-100">Download latest Proxmox VE ISO from the official website</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">✓</span>
-                                        <span class="dark:text-blue-100">Create bootable USB using tools like Rufus or Etcher</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">✓</span>
-                                        <span class="dark:text-blue-100">Ensure BIOS/UEFI settings have virtualization enabled</span>
-                                    </li>
-                                </ul>
+                                <h4 class="text-lg font-semibold mb-6 text-gray-100">Pre-installation Tasks:</h4>
+                                
+                                <!-- Download Section -->
+                                <div class="mb-8">
+                                    <h5 class="text-lg font-semibold mb-3 text-white">1. Download Proxmox VE</h5>
+                                    <div class="ml-6">
+                                        <p class="text-gray-300 mb-3">Get the latest version of Proxmox Virtual Environment:</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <a href="https://www.proxmox.com/en/downloads/proxmox-virtual-environment/iso" 
+                                               target="_blank"
+                                               rel="noopener noreferrer" 
+                                               class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
+                                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                                </svg>
+                                                Download Proxmox VE ISO
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <!-- Create Bootable USB Section -->
+                                <div class="mb-8">
+                                    <h5 class="text-lg font-semibold mb-3 text-white">2. Create Bootable USB</h5>
+                                    <div class="ml-6">
+                                        <p class="text-gray-300 mb-3">Choose your preferred USB creation tool:</p>
+                                        
+                                        <div class="space-y-3 md:space-y-4">
+                                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                                                <span class="text-gray-300 min-w-[120px]">Windows Users:</span>
+                                                <a href="https://rufus.ie/en/" 
+                                                   target="_blank"
+                                                   rel="noopener noreferrer" 
+                                                   class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
+                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                                    </svg>
+                                                    Download Rufus
+                                                </a>
+                                            </div>
+                        
+                                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                                                <span class="text-gray-300 min-w-[120px]">Mac Users:</span>
+                                                <a href="https://github.com/balena-io/etcher" 
+                                                   target="_blank"
+                                                   rel="noopener noreferrer" 
+                                                   class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
+                                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                                    </svg>
+                                                    Download balenaEtcher
+                                                </a>
+                                            </div>
+                                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                                                <span class="text-gray-300 min-w-[120px]">Linux Users:</span>
+                                                <span class="text-gray-300">...if you're using Linux I am sure you know what to do. dd will work fine</span>
+                                                <pre class="bg-gray-800 text-gray-100 p-3 rounded text-sm"><code>sudo dd if=/path/to/proxmox.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <!-- BIOS Settings Section -->
+                                <div>
+                                    <h5 class="text-lg font-semibold mb-3 text-white">3. BIOS/UEFI Configuration</h5>
+                                    <div class="ml-6"> <!-- Added indentation container -->
+                                        <p class="text-gray-300 mb-3">Ensure the following settings are enabled in your BIOS/UEFI:</p>
+                                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                                            <li>Intel Virtualization Technology (VT-x) or AMD-V</li>
+                                            <li>Intel VT-d or AMD IOMMU (if available)</li>
+                                            <li>USB Boot Support</li>
+                                            <li>Legacy USB Support (if using older hardware)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
