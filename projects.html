@@ -99,43 +99,7 @@
             </div>
         </section>
     </main>
-
-    <script>
-        // Theme toggle functionality
-        function setDarkMode(isDark) {
-            if (isDark) {
-                document.documentElement.classList.add('dark');
-                localStorage.theme = 'dark';
-            } else {
-                document.documentElement.classList.remove('dark');
-                localStorage.theme = 'light';
-            }
-        }
-
-        // Check for saved theme preference or system preference
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            setDarkMode(true);
-        } else {
-            setDarkMode(false);
-        }
-
-        // Theme toggle event listeners
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-            setDarkMode(!document.documentElement.classList.contains('dark'));
-        });
-
-        document.getElementById('theme-toggle-mobile').addEventListener('click', () => {
-            setDarkMode(!document.documentElement.classList.contains('dark'));
-        });
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
 <!-- projects.html file end -->
