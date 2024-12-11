@@ -412,11 +412,10 @@
                                         Now that we have our Proxmox server up and running, we need to set up our local development environment to manage it. This section covers the installation of essential DevOps tools that will allow us to:
                                     </p>
                                     <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-gray-300 space-y-2">
-                                        <li>Automate infrastructure deployment using Ansible</li>
-                                        <li>Manage infrastructure as code with Terraform</li>
-                                        <li>Version control our configurations using Git</li>
-                                        <li>Securely access our Proxmox server via SSH</li>
-                                        
+                                        <li style="margin-left: 50px;">Automate infrastructure deployment using Ansible</li>
+                                        <li style="margin-left: 50px;">Manage infrastructure as code with Terraform</li>
+                                        <li style="margin-left: 50px;">Version control our configurations using Git</li>
+                                        <li style="margin-left: 50px;">Securely access our Proxmox server via SSH</li>
                                     </ul>
                                     <p class="text-gray-600 dark:text-gray-300 mb-6">
                                         Choose the setup instructions below that match your local operating system. After installation, we'll configure SSH keys for secure remote access and verify that everything is working correctly.
@@ -468,7 +467,25 @@ choco install terraform
 choco install python3
 choco install git</code></pre>
                                     </div>
+                                    <!-- Visual Separator and Transition -->
+                                    <div class="relative py-8">
+                                        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                                            <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
+                                        </div>
+                                        <div class="relative flex justify-center">
+                                            <span class="bg-white dark:bg-gray-900 px-4 text-gray-500 dark:text-gray-400">
+                                                Common Configuration Steps
+                                            </span>
+                                        </div>
+                                    </div>
 
+                                    <!-- Transition text -->
+                                    <div class="bg-blue-50 dark:bg-gray-800 p-6 rounded-lg border border-blue-100 dark:border-gray-700">
+                                        <h5 class="font-semibold mb-3 text-gray-800 dark:text-blue-400">Next Steps</h5>
+                                        <p class="text-gray-600 dark:text-blue-300">
+                                            Now that you have installed the required tools for your operating system, the following steps are common across all environments. These steps will set up secure access to your Proxmox server and verify that everything is working correctly.
+                                        </p>
+                                    </div>
                                     <!-- Configuration -->
                                     <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
                                         <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">SSH Key Configuration</h5>
