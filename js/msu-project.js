@@ -43,16 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // New prerequisites functionality
+    // Prerequisites functionality
     const previews = document.querySelectorAll('.prereq-preview');
     previews.forEach(preview => {
-        const header = preview.querySelector('div');
+        const previewHeader = preview.querySelector('.flex');  // The always-visible part
+        const header = preview.querySelector('.prereq-header');
         const content = preview.querySelector('.prereq-content');
         const viewText = preview.querySelector('span');
 
-        header.addEventListener('click', () => {
+        previewHeader.addEventListener('click', () => {
             // Toggle content visibility with animation
             content.classList.toggle('hidden');
+            
             // Toggle active state for the header
             header.classList.toggle('active');
             
@@ -81,6 +83,17 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 content.style.maxHeight = '0';
                 content.style.opacity = '0';
+            }
+        });
+
+        // Add hover effects to the parent element
+        previewHeader.addEventListener('mouseenter', () => {
+            header.classList.add('hover');
+        });
+
+        previewHeader.addEventListener('mouseleave', () => {
+            if (!content.classList.contains('active')) {
+                header.classList.remove('hover');
             }
         });
     });
