@@ -372,6 +372,87 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Step 4: Remote Development Setup -->
+                    <div class="installation-step" data-step="4">
+                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                            <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">04</span>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Remote Development Setup</h3>
+                            <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                        <div class="installation-content hidden p-6 bg-white dark:bg-gray-900 transition-colors duration-200">
+                            <div class="prose dark:prose-invert max-w-none">
+                                <div class="space-y-6">
+                                    <!-- MacOS Setup -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+                                        <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">MacOS Setup</h5>
+                                        <p class="mb-4 text-gray-600 dark:text-gray-300">Install required tools using Homebrew:</p>
+                                        <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code># Install Homebrew if not already installed
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install required packages
+brew install ansible
+brew install terraform
+brew install python3
+brew install git</code></pre>
+                                    </div>
+
+                                    <!-- Linux Setup -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+                                        <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">Linux Setup (Ubuntu/Debian)</h5>
+                                        <p class="mb-4 text-gray-600 dark:text-gray-300">Install required packages:</p>
+                                        <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>sudo apt update
+sudo apt install -y ansible python3-pip git
+sudo apt install -y software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update
+sudo apt install terraform</code></pre>
+                                    </div>
+
+                                    <!-- Windows Setup -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+                                        <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">Windows Setup</h5>
+                                        <p class="mb-4 text-gray-600 dark:text-gray-300">Install required tools using PowerShell:</p>
+                                        <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code># Install Chocolatey if not already installed
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+# Install required packages
+choco install ansible
+choco install terraform
+choco install python3
+choco install git</code></pre>
+                                    </div>
+
+                                    <!-- Configuration -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+                                        <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">SSH Key Configuration</h5>
+                                        <p class="mb-4 text-gray-600 dark:text-gray-300">Generate and configure SSH keys for remote access:</p>
+                                        <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code># Generate SSH key pair
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Copy public key to Proxmox server
+ssh-copy-id root@your-proxmox-ip</code></pre>
+                                    </div>
+
+                                    <!-- Verification -->
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+                                        <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">Verify Installation</h5>
+                                        <p class="mb-4 text-gray-600 dark:text-gray-300">Verify that all tools are installed correctly:</p>
+                                        <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>ansible --version
+terraform --version
+python3 --version
+git --version
+
+# Test SSH connection
+ssh root@your-proxmox-ip</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

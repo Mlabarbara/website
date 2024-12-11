@@ -1312,7 +1312,7 @@ html.dark .dark\:bg-gray-800 {
 }
 
 .installation-content:not(.hidden) {
-  max-height: 1000px;
+  max-height:fit-content;
 }
 
 pre {
