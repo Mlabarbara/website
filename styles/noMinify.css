@@ -1325,6 +1325,25 @@ pre {
   margin: 0;
 }
 
+.prereq-content {
+  transition: all 0.3s ease-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.prereq-content:not(.hidden) {
+  max-height: fit-content;
+  opacity: 1;
+}
+
+.prereq-preview {
+  transition: transform 0.3s ease-out;
+}
+
+.prereq-preview:hover {
+  transform: translateX(8px);
+}
+
 /* main.css end */
 
 .hover\:bg-blue-100:hover {
