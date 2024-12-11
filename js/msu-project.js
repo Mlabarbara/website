@@ -7,6 +7,7 @@ function toggleSection(sectionId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Existing installation steps functionality
     const steps = document.querySelectorAll('.installation-step');
     
     // Intersection Observer for scroll-based animations
@@ -41,4 +42,32 @@ document.addEventListener('DOMContentLoaded', () => {
             arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
         });
     });
+
+    // New prerequisites functionality
+    const previews = document.querySelectorAll('.prereq-preview');
+    previews.forEach(preview => {
+        const header = preview.querySelector('div');
+        const content = preview.querySelector('.prereq-content');
+        const viewText = preview.querySelector('span');
+
+        header.addEventListener('click', () => {
+            // Toggle content visibility with animation
+            content.classList.toggle('hidden');
+            
+            // Update view/hide text
+            viewText.textContent = content.classList.contains('hidden') ? 'View Details' : 'Hide Details';
+            
+            // Add slide animation
+            if (!content.classList.contains('hidden')) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+            } else {
+                content.style.maxHeight = '0';
+                content.style.opacity = '0';
+            }
+        });
+    });
+
+    // Add scroll-based animations for prerequisites
+    previews.forEach(preview => observer.observe(preview)); // We can reuse the same observer
 });
