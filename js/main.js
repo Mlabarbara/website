@@ -13,9 +13,6 @@ function setDarkMode(isDark) {
 
 // Initialize theme
 function initializeTheme() {
-    // Set dark mode as initial state
-    setDarkMode(true);
-
     // Set initial dark mode state
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         setDarkMode(true);
