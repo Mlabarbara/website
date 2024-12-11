@@ -201,20 +201,20 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </div>
-                        <div class="installation-content hidden p-6 bg-gray-900">
+                        <div class="installation-content hidden p-6 bg-white dark:bg-gray-900 transition-colors duration-200">
                             <div class="prose dark:prose-invert max-w-none">
-                                <h4 class="text-lg font-semibold mb-6 text-gray-100">Pre-installation Tasks:</h4>
+                                <h4 class="text-lg font-semibold mb-6 text-gray-800 dark:text-gray-100">Pre-installation Tasks:</h4>
                                 
                                 <!-- Download Section -->
                                 <div class="mb-8">
-                                    <h5 class="text-lg font-semibold mb-3 text-white">1. Download Proxmox VE</h5>
+                                    <h5 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white">1. Download Proxmox VE</h5>
                                     <div class="ml-6">
-                                        <p class="text-gray-300 mb-3">Get the latest version of Proxmox Virtual Environment:</p>
+                                        <p class="text-gray-600 dark:text-gray-300 mb-3">Get the latest version of Proxmox Virtual Environment:</p>
                                         <div class="flex flex-wrap gap-2">
                                             <a href="https://www.proxmox.com/en/downloads/proxmox-virtual-environment/iso" 
-                                               target="_blank"
-                                               rel="noopener noreferrer" 
-                                               class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
+                                            target="_blank"
+                                            rel="noopener noreferrer" 
+                                            class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
                                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                                                 </svg>
@@ -226,17 +226,17 @@
                         
                                 <!-- Create Bootable USB Section -->
                                 <div class="mb-8">
-                                    <h5 class="text-lg font-semibold mb-3 text-white">2. Create Bootable USB</h5>
+                                    <h5 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white">2. Create Bootable USB</h5>
                                     <div class="ml-6">
-                                        <p class="text-gray-300 mb-3">Choose your preferred USB creation tool:</p>
+                                        <p class="text-gray-600 dark:text-gray-300 mb-3">Choose your preferred USB creation tool:</p>
                                         
                                         <div class="space-y-3 md:space-y-4">
                                             <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-                                                <span class="text-gray-300 min-w-[120px]">Windows Users:</span>
+                                                <span class="text-gray-600 dark:text-gray-300 min-w-[120px]">Windows Users:</span>
                                                 <a href="https://rufus.ie/en/" 
-                                                   target="_blank"
-                                                   rel="noopener noreferrer" 
-                                                   class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
+                                                target="_blank"
+                                                rel="noopener noreferrer" 
+                                                class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
                                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                                                     </svg>
@@ -245,11 +245,11 @@
                                             </div>
                         
                                             <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-                                                <span class="text-gray-300 min-w-[120px]">Mac Users:</span>
+                                                <span class="text-gray-600 dark:text-gray-300 min-w-[120px]">Mac Users:</span>
                                                 <a href="https://github.com/balena-io/etcher" 
-                                                   target="_blank"
-                                                   rel="noopener noreferrer" 
-                                                   class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
+                                                target="_blank"
+                                                rel="noopener noreferrer" 
+                                                class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200">
                                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                                                     </svg>
@@ -257,9 +257,9 @@
                                                 </a>
                                             </div>
                                             <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-                                                <span class="text-gray-300 min-w-[120px]">Linux Users:</span>
-                                                <span class="text-gray-300">...if you're using Linux I am sure you know what to do. dd will work fine</span>
-                                                <pre class="bg-gray-800 text-gray-100 p-3 rounded text-sm"><code>sudo dd if=/path/to/proxmox.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></pre>
+                                                <span class="text-gray-600 dark:text-gray-300 min-w-[120px]">Linux Users:</span>
+                                                <span class="text-gray-600 dark:text-gray-300">...if you're using Linux I am sure you know what to do. dd will work fine</span>
+                                                <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded text-sm transition-colors duration-200"><code>sudo dd if=/path/to/proxmox.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></pre>
                                             </div>
                                         </div>
                                     </div>
@@ -267,10 +267,10 @@
                         
                                 <!-- BIOS Settings Section -->
                                 <div>
-                                    <h5 class="text-lg font-semibold mb-3 text-white">3. BIOS/UEFI Configuration</h5>
-                                    <div class="ml-6"> <!-- Added indentation container -->
-                                        <p class="text-gray-300 mb-3">Ensure the following settings are enabled in your BIOS/UEFI:</p>
-                                        <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                                    <h5 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white">3. BIOS/UEFI Configuration</h5>
+                                    <div class="ml-6">
+                                        <p class="text-gray-600 dark:text-gray-300 mb-3">Ensure the following settings are enabled in your BIOS/UEFI:</p>
+                                        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                                             <li>Intel Virtualization Technology (VT-x) or AMD-V</li>
                                             <li>Intel VT-d or AMD IOMMU (if available)</li>
                                             <li>USB Boot Support</li>
@@ -291,7 +291,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </div>
-                        <div class="installation-content hidden p-6">
+                        <div class="installation-content hidden p-6 bg-white dark:bg-gray-900 transition-colors duration-200">
                             <div class="prose dark:prose-invert max-w-none">
                                 <div class="mb-6">
                                     <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -300,11 +300,10 @@
                                         or the <a href="https://pve.proxmox.com/wiki/Installation" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500">Official Proxmox Documentation</a>.
                                     </p>
                                 </div>
-                
+
                                 <div class="space-y-6">
-                
                                     <!-- Phase 2: Base Installation -->
-                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 transition-colors duration-200">
                                         <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Phase 2: Base Installation</h4>
                                         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                                             <li>Boot from USB and start installer</li>
@@ -313,9 +312,9 @@
                                             <li>Complete base system installation</li>
                                         </ul>
                                     </div>
-                
+
                                     <!-- Phase 3: Initial Configuration -->
-                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 transition-colors duration-200">
                                         <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">Phase 3: Initial Configuration</h4>
                                         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                                             <li>Access web interface (https://your-server-ip:8006)</li>
@@ -324,9 +323,9 @@
                                             <li>Enable required services</li>
                                         </ul>
                                     </div>
-                
+
                                     <!-- MSU-Specific Notes -->
-                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 transition-colors duration-200">
                                         <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-100">MSU Project Notes</h4>
                                         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                                             <li>Use a static IP address for stable remote access</li>
@@ -339,7 +338,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Step 3: Initial Configuration -->
                     <div class="installation-step" data-step="3">
                         <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
@@ -349,21 +348,21 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </div>
-                        <div class="installation-content hidden p-6">
+                        <div class="installation-content hidden p-6 bg-white dark:bg-gray-900 transition-colors duration-200">
                             <div class="prose dark:prose-invert max-w-none">
-                                <h4 class="text-lg font-semibold mb-4">Post-Installation Setup:</h4>
+                                <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Post-Installation Setup:</h4>
                                 <div class="space-y-6">
-                                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
                                         <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">Repository Configuration</h5>
-                                            <pre class="bg-gray-800 text-gray-100 p-3 rounded"><code>    apt update
+                                        <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>    apt update
     apt upgrade -y
     apt install vim -y</code></pre>
                                     </div>
                                     
-                                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
                                         <h5 class="font-semibold mb-3 text-gray-800 dark:text-gray-100">SSH Configuration</h5>
-                                        <p class="mb-2">Enable SSH access and configure key-based authentication:</p>
-                                        <pre class="bg-gray-800 text-gray-100 p-3 rounded"><code>    vim /etc/ssh/sshd_config
+                                        <p class="mb-2 text-gray-600 dark:text-gray-300">Enable SSH access and configure key-based authentication:</p>
+                                        <pre class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>    vim /etc/ssh/sshd_config
     # Enable these lines:
     PermitRootLogin yes
     PubkeyAuthentication yes</code></pre>
