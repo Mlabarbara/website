@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         header.addEventListener('click', () => {
             // Toggle content visibility with animation
             content.classList.toggle('hidden');
+            // Toggle active state for the header
+            header.classList.toggle('active');
             
             // Update view/hide text
             viewText.textContent = content.classList.contains('hidden') ? 'View Details' : 'Hide Details';
@@ -61,6 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!content.classList.contains('hidden')) {
                 content.style.maxHeight = content.scrollHeight + 'px';
                 content.style.opacity = '1';
+                
+                // Close other sections and remove their active states
+                previews.forEach(otherPreview => {
+                    if (otherPreview !== preview) {
+                        const otherContent = otherPreview.querySelector('.prereq-content');
+                        const otherHeader = otherPreview.querySelector('.prereq-header');
+                        const otherViewText = otherPreview.querySelector('span');
+                        
+                        otherContent.classList.add('hidden');
+                        otherHeader.classList.remove('active');
+                        otherContent.style.maxHeight = '0';
+                        otherContent.style.opacity = '0';
+                        otherViewText.textContent = 'View Details';
+                    }
+                });
             } else {
                 content.style.maxHeight = '0';
                 content.style.opacity = '0';
