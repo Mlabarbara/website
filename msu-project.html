@@ -97,93 +97,115 @@
 
         <!-- Prerequisites Section -->
         <section class="content-card rounded-xl p-8 mb-8 animate-fade-in hover-float">
-            <div class="mb-6" onclick="toggleSection('prerequisites')" style="cursor: pointer;">
-                <div class="flex justify-between items-center">
+            <div class="prerequisites-container">
+                <!-- Main header -->
+                <div class="flex items-center justify-between mb-6">
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Prerequisites</h2>
-                    <svg class="w-6 h-6 transform transition-transform duration-200" id="prerequisites-arrow" 
-                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <!-- <svg class="w-6 h-6 transform transition-transform duration-200" id="prerequisites-arrow" 
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
+                    </svg> -->
                 </div>
-                <div id="prerequisites-content" class="hidden mt-4 bg-blue-100 text-gray-600 dark:text-gray-300">
-                    <!-- Hardware Requirements -->
-                    <div class="mb-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Hardware Requirements</h3>
-                        <ul class="space-y-2 ml-4">
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Server Hardware:</strong> 64-bit CPU with Intel VT/AMD-V virtualization support</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Memory:</strong> Minimum 2GB RAM (8GB+ recommended for multiple VMs)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Storage:</strong> Minimum 16GB (SSD recommended for better performance)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Network:</strong> Compatible network interface card with Internet connectivity</span>
-                            </li>
-                        </ul>
+                <!-- Section previews that are always visible -->
+                <div class="grid gap-4">
+                    <!-- Hardware Requirements Preview -->
+                    <div class="prereq-preview" data-section="hardware">
+                        <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Hardware Requirements</h3>
+                            <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
+                        </div>
+                        <div class="prereq-content dark:text-blue-400 hidden mt-4 pl-4 space-y-2">
+                            <ul class="space-y-2 ml-4">
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Server Hardware:</strong> 64-bit CPU with Intel VT/AMD-V virtualization support</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Memory:</strong> Minimum 2GB RAM (8GB+ recommended for multiple VMs)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Storage:</strong> Minimum 16GB (SSD recommended for better performance)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Network:</strong> Compatible network interface card with Internet connectivity</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- Software Requirements -->
-                    <div class="mb-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Software Requirements</h3>
-                        <ul class="space-y-2 ml-4">
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Proxmox VE:</strong> Latest ISO from official website</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Development Tools:</strong> SSH client, Git, Python 3.x</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Web Browser:</strong> Modern browser for Proxmox web interface</span>
-                            </li>
-                        </ul>
+                    <!-- Software Requirements Preview -->
+                    <div class="prereq-preview" data-section="software">
+                        <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Software Requirements</h3>
+                            <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
+                        </div>
+                        <div class="prereq-content dark:text-blue-400 hidden mt-4 pl-4 space-y-2">
+                            <ul class="space-y-2 ml-4">
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Proxmox VE:</strong> Latest ISO from official website</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Development Tools:</strong> SSH client, Git, Python 3.x</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Web Browser:</strong> Modern browser for Proxmox web interface</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- Network Requirements -->
-                    <div class="mb-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Network Requirements</h3>
-                        <ul class="space-y-2 ml-4">
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Static IP Address:</strong> Required for Proxmox host</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Port Access:</strong> 8006 (Web UI), 22 (SSH), 3128 (Package Management)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>DNS Resolution:</strong> Proper DNS setup for network connectivity</span>
-                            </li>
-                        </ul>
+                    <!-- Network Requirements Preview -->
+                    <div class="prereq-preview" data-section="network">
+                        <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Network Requirements</h3>
+                            <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
+                        </div>
+                        <div class="prereq-content dark:text-blue-400 hidden mt-4 pl-4 space-y-2">
+                            <ul class="space-y-2 ml-4">
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Static IP Address:</strong> Required for Proxmox host</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Port Access:</strong> 8006 (Web UI), 22 (SSH), 3128 (Package Management)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>DNS Resolution:</strong> Proper DNS setup for network connectivity</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- Technical Knowledge -->
-                    <div class="mb-6">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Required Knowledge</h3>
-                        <ul class="space-y-2 ml-4">
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>System Administration:</strong> Basic Linux command line experience</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>Networking:</strong> Understanding of IP addressing, VLANs, and DNS</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="mr-2">•</span>
-                                <span><strong>DevOps:</strong> Familiarity with YAML syntax for Ansible</span>
-                            </li>
-                        </ul>
+                    <!-- Required Knowledge Preview -->
+                    <div class="prereq-preview" data-section="knowledge">
+                        <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Required Knowledge</h3>
+                            <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
+                        </div>
+                        <div class="prereq-content dark:text-blue-400 hidden mt-4 pl-4 space-y-2">
+                            <ul class="space-y-2 ml-4">
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>System Administration:</strong> Basic Linux command line experience</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>Networking:</strong> Understanding of IP addressing, VLANs, and DNS</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span><strong>DevOps:</strong> Familiarity with YAML syntax for Ansible</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -384,6 +406,26 @@
                         </div>
                         <div class="installation-content hidden p-6 bg-white dark:bg-gray-900 transition-colors duration-200">
                             <div class="prose dark:prose-invert max-w-none">
+                                <!--  overview section discussing what they are about to accomplish-->
+                                <div class="mb-8">
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        Now that we have our Proxmox server up and running, we need to set up our local development environment to manage it. This section covers the installation of essential DevOps tools that will allow us to:
+                                    </p>
+                                    <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-gray-300 space-y-2">
+                                        <li>Automate infrastructure deployment using Ansible</li>
+                                        <li>Manage infrastructure as code with Terraform</li>
+                                        <li>Version control our configurations using Git</li>
+                                        <li>Securely access our Proxmox server via SSH</li>
+                                    </ul>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                                        Choose the setup instructions below that match your local operating system. After installation, we'll configure SSH keys for secure remote access and verify that everything is working correctly.
+                                    </p>
+                                    <div class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg mb-8">
+                                        <p class="text-blue-700 dark:text-blue-300">
+                                            <strong>Note:</strong> These tools will be installed on your local machine, not the Proxmox server. They allow you to manage your Proxmox infrastructure remotely.
+                                        </p>
+                                    </div>
+                                </div>
                                 <div class="space-y-6">
                                     <!-- MacOS Setup -->
                                     <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
