@@ -1127,6 +1127,11 @@ body {
   transition-duration: 200ms;
 }
 
+/* Indent lists  */
+.li-indent {
+  margin-left: 50px;
+}
+
 /* Animations */
 
 @keyframes fadeIn {
