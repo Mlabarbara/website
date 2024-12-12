@@ -1,103 +1,125 @@
-function toggleSection(sectionId) {
-    const content = document.getElementById(`${sectionId}-content`);
-    const arrow = document.getElementById(`${sectionId}-arrow`);
-    
-    content.classList.toggle('hidden');
-    arrow.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Existing installation steps functionality
+    // Installation steps animation
     const steps = document.querySelectorAll('.installation-step');
     
-    // Intersection Observer for scroll-based animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+    // Create an observer instance for each step
+    const observers = new Map();
+    
+    steps.forEach((step, index) => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    // Get current intersection ratio
+                    const ratio = entry.intersectionRatio;
+                    
+                    // Don't apply opacity changes if content is expanded
+                    const content = entry.target.querySelector('.installation-content');
+                    if (content && !content.classList.contains('hidden')) {
+                        entry.target.style.opacity = 1;
+                        return;
+                    }
+                    
+                    // Calculate opacity and transform based on intersection ratio
+                    const opacity = Math.min(ratio * 3, 1);
+                    const translateY = 20 - (ratio * 20); // Start at 20px up, move to 0
+                    
+                    // Apply smooth transitions
+                    entry.target.style.opacity = opacity;
+                    entry.target.style.transform = `translateY(${translateY}px)`;
+                });
+            },
+            {
+                threshold: Array(100).fill().map((_, i) => i / 100),
+                rootMargin: '0px 0px -2% 0px'
             }
-        });
-    }, { threshold: 0.5 });
-
-    steps.forEach(step => {
-        observer.observe(step);
+        );
         
+        observer.observe(step);
+        observers.set(step, observer);
+        
+        // Accordion functionality
         const header = step.querySelector('div:first-child');
         const content = step.querySelector('.installation-content');
         const arrow = step.querySelector('svg');
         
-        header.addEventListener('click', () => {
-            const isOpen = !content.classList.contains('hidden');
-            
-            // Close all other sections
-            steps.forEach(otherStep => {
-                if (otherStep !== step) {
-                    otherStep.querySelector('.installation-content').classList.add('hidden');
-                    otherStep.querySelector('svg').style.transform = 'rotate(0deg)';
+        if (header && content && arrow) {
+            header.addEventListener('click', () => {
+                const isOpen = !content.classList.contains('hidden');
+                
+                // First, ensure the clicked element is fully opaque
+                step.style.opacity = '1';
+                
+                // Scroll the header to top of viewport when opened
+                if (!isOpen) {
+                    // Add a small delay to allow for smooth animation
+                    setTimeout(() => {
+                        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+                
+                // Close all other sections
+                steps.forEach(otherStep => {
+                    if (otherStep !== step) {
+                        const otherContent = otherStep.querySelector('.installation-content');
+                        const otherArrow = otherStep.querySelector('svg');
+                        if (otherContent && otherArrow) {
+                            otherContent.classList.add('hidden');
+                            otherArrow.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+                
+                // Toggle current section
+                content.classList.toggle('hidden');
+                arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                
+                // Set appropriate max-height for animation
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    content.style.maxHeight = '0';
                 }
             });
-            
-            // Toggle current section
-            content.classList.toggle('hidden');
-            arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-        });
+        }
     });
 
     // Prerequisites functionality
     const previews = document.querySelectorAll('.prereq-preview');
     previews.forEach(preview => {
-        const previewHeader = preview.querySelector('.flex');  // The always-visible part
+        const previewHeader = preview.querySelector('.flex');
         const header = preview.querySelector('.prereq-header');
         const content = preview.querySelector('.prereq-content');
         const viewText = preview.querySelector('span');
 
-        previewHeader.addEventListener('click', () => {
-            // Toggle content visibility with animation
-            content.classList.toggle('hidden');
-            
-            // Toggle active state for the header
-            header.classList.toggle('active');
-            
-            // Update view/hide text
-            viewText.textContent = content.classList.contains('hidden') ? 'View Details' : 'Hide Details';
-            
-            // Add slide animation
-            if (!content.classList.contains('hidden')) {
-                content.style.maxHeight = content.scrollHeight + 'px';
-                content.style.opacity = '1';
-                
-                // Close other sections and remove their active states
-                previews.forEach(otherPreview => {
-                    if (otherPreview !== preview) {
-                        const otherContent = otherPreview.querySelector('.prereq-content');
-                        const otherHeader = otherPreview.querySelector('.prereq-header');
-                        const otherViewText = otherPreview.querySelector('span');
-                        
-                        otherContent.classList.add('hidden');
-                        otherHeader.classList.remove('active');
-                        otherContent.style.maxHeight = '0';
-                        otherContent.style.opacity = '0';
-                        otherViewText.textContent = 'View Details';
-                    }
-                });
-            } else {
-                content.style.maxHeight = '0';
-                content.style.opacity = '0';
-            }
-        });
+        if (previewHeader && header && content && viewText) {
+            previewHeader.addEventListener('click', () => {
+                content.classList.toggle('hidden');
+                header.classList.toggle('active');
+                viewText.textContent = content.classList.contains('hidden') ? 'View Details' : 'Hide Details';
 
-        // Add hover effects to the parent element
-        previewHeader.addEventListener('mouseenter', () => {
-            header.classList.add('hover');
-        });
-
-        previewHeader.addEventListener('mouseleave', () => {
-            if (!content.classList.contains('active')) {
-                header.classList.remove('hover');
-            }
-        });
+                if (!content.classList.contains('hidden')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.opacity = '1';
+                    
+                    previews.forEach(otherPreview => {
+                        if (otherPreview !== preview) {
+                            const otherContent = otherPreview.querySelector('.prereq-content');
+                            const otherHeader = otherPreview.querySelector('.prereq-header');
+                            const otherViewText = otherPreview.querySelector('span');
+                            if (otherContent && otherHeader && otherViewText) {
+                                otherContent.classList.add('hidden');
+                                otherHeader.classList.remove('active');
+                                otherContent.style.maxHeight = '0';
+                                otherContent.style.opacity = '0';
+                                otherViewText.textContent = 'View Details';
+                            }
+                        }
+                    });
+                } else {
+                    content.style.maxHeight = '0';
+                    content.style.opacity = '0';
+                }
+            });
+        }
     });
-
-    // Add scroll-based animations for prerequisites
-    previews.forEach(preview => observer.observe(preview)); // We can reuse the same observer
 });
