@@ -412,10 +412,10 @@
                                         Now that we have our Proxmox server up and running, we need to set up our local development environment to manage it. This section covers the installation of essential DevOps tools that will allow us to:
                                     </p>
                                     <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-gray-300 space-y-2">
-                                        <li style="margin-left: 50px;">Automate infrastructure deployment using Ansible</li>
-                                        <li style="margin-left: 50px;">Manage infrastructure as code with Terraform</li>
-                                        <li style="margin-left: 50px;">Version control our configurations using Git</li>
-                                        <li style="margin-left: 50px;">Securely access our Proxmox server via SSH</li>
+                                        <li class="li-indent">Automate infrastructure deployment using Ansible</li>
+                                        <li class="li-indent">Manage infrastructure as code with Terraform</li>
+                                        <li class="li-indent">Version control our configurations using Git</li>
+                                        <li class="li-indent">Securely access our Proxmox server via SSH</li>
                                     </ul>
                                     <p class="text-gray-600 dark:text-gray-300 mb-6">
                                         Choose the setup instructions below that match your local operating system. After installation, we'll configure SSH keys for secure remote access and verify that everything is working correctly.
@@ -508,6 +508,220 @@ git --version
 
 # Test SSH connection
 ssh root@your-proxmox-ip</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5: Infrastructure Deployment -->
+                    <div class="installation-step" data-step="5">
+                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-800 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                            <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">05</span>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Infrastructure Deployment</h3>
+                            <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                        <div class="installation-content hidden p-6 bg-white dark:bg-gray-900 transition-colors duration-200">
+                            <div class="prose dark:prose-invert max-w-none">
+                                <!-- Overview Section -->
+                                <div class="mb-8">
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        In this section, we'll deploy our development environment using Terraform to provision infrastructure on Proxmox 
+                                        and configure Kasm workspaces with Kali Linux. This automated approach ensures consistency and repeatability in 
+                                        your setup.
+                                    </p>
+                                    <div class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg mb-8">
+                                        <p class="text-blue-700 dark:text-blue-300">
+                                            <strong>Note:</strong> Before proceeding, ensure you have completed all previous sections and have Terraform 
+                                            installed on your local machine.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Prerequisites -->
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200 mb-8">
+                                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Prerequisites</h4>
+                                    <ul class="list-disc pl-6 mb-4 text-gray-600 dark:text-gray-300 space-y-2">
+                                        <li class="li-indent">Basic understanding of YAML and HCL (HashiCorp Configuration Language)</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Terraform Configuration -->
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200 mb-8">
+                                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Step 1: Terraform Configuration</h4>
+                                    <p class="mb-4 text-gray-600 dark:text-gray-300">First, create a new directory for your Terraform files:</p>
+                                    <pre class="mb-6 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200 mb-4"><code>    mkdir terraform-kasm-deploy
+    cd terraform-kasm-deploy</code></pre>
+                                    
+                                    <p class="mb-4 mt-4 text-gray-600 dark:text-gray-300">Create the following configuration files:</p>
+
+                                    <div class="space-y-6">
+                                        <!-- provider.tf -->
+                                        <div>
+                                            <h5 class="text-md font-semibold mb-2 text-gray-800 dark:text-gray-100">provider.tf</h5>
+                                            <pre class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>terraform {
+    required_providers {
+        proxmox = {
+        source = "telmate/proxmox"
+        version = "2.9.14"
+        }
+    }
+    }
+
+    provider "proxmox" {
+    pm_api_url = "https://${var.proxmox_host}:8006/api2/json"
+    pm_api_token_id = var.pm_api_token_id
+    pm_api_token_secret = var.pm_api_token_secret
+    pm_tls_insecure = true
+    }</code></pre>
+                                        </div>
+
+                                        <!-- variables.tf -->
+                                        <div>
+                                            <h5 class="text-md font-semibold mb-2 text-gray-800 dark:text-gray-100">variables.tf</h5>
+                                            <pre class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>variable "proxmox_host" {
+    description = "Proxmox host IP or FQDN"
+    type = string
+    }
+
+    variable "pm_api_token_id" {
+    description = "Proxmox API token ID"
+    type = string
+    }
+
+    variable "pm_api_token_secret" {
+    description = "Proxmox API token secret"
+    type = string
+    sensitive = true
+    }
+
+    variable "ssh_key" {
+    description = "SSH public key for VM access"
+    type = string
+    }</code></pre>
+                                        </div>
+
+                                        <!-- main.tf -->
+                                        <div>
+                                            <h5 class="text-md font-semibold mb-2 text-gray-800 dark:text-gray-100">main.tf</h5>
+                                            <pre class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>resource "proxmox_vm_qemu" "kasm_server" {
+    count = 1
+    name = "kasm-workspace-${count.index + 1}"
+    target_node = var.proxmox_node
+    clone = var.template_name
+    os_type = "cloud-init"
+    cores = 4
+    sockets = 1
+    cpu = "host"
+    memory = 8192
+    scsihw = "virtio-scsi-pci"
+    bootdisk = "scsi0"
+    agent = 1
+
+    disk {
+        size = "50G"
+        type = "scsi"
+        storage = "local-lvm"
+    }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr0"
+    }
+
+    cloud_init = true
+    cicustom = "user=local:snippets/cloud-init-kasm.yml"
+
+    ipconfig0 = "ip=dhcp"
+    }</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cloud-Init Configuration -->
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200 mb-8">
+                                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Step 2: Cloud-Init Template</h4>
+                                    <p class="mb-4 text-gray-600 dark:text-gray-300">Create a cloud-init template for automated Kasm workspace deployment:</p>
+                                    <pre class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200"><code>#cloud-config
+    users:
+    - name: kasm
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        groups: sudo
+        shell: /bin/bash
+        ssh_authorized_keys:
+        - ${ssh_key}
+
+    package_update: true
+    package_upgrade: true
+
+    packages:
+    - curl
+    - wget
+    - git
+    - docker.io
+    - docker-compose
+
+    runcmd:
+    - systemctl start docker
+    - systemctl enable docker
+    - curl -O https://kasm-static-content.s3.amazonaws.com/kasm_release_1.10.0.238225.tar.gz
+    - tar -xf kasm_release_1.10.0.238225.tar.gz
+    - bash kasm_release/install.sh</code></pre>
+                                </div>
+
+                                <!-- Deployment and Verification -->
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200 mb-8">
+                                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Step 3: Deployment</h4>
+                                    <p class="mb-4 text-gray-600 dark:text-gray-300">Execute the Terraform deployment:</p>
+                                    <pre class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-3 rounded transition-colors duration-200 mb-6"><code>   # Initialize Terraform
+    terraform init
+
+    # Review the deployment plan
+    terraform plan
+
+    # Apply the configuration
+    terraform apply</code></pre>
+
+                                    <h5 class="text-md font-semibold mb-3 text-gray-800 dark:text-gray-100">Verification Steps:</h5>
+                                    <ol class="list-decimal dark:bg-gray-900 pl-6 mb-4 text-gray-600 dark:text-gray-300 space-y-2">
+                                        <li class="li-indent">Access the Kasm web interface at https://your-vm-ip:443</li>
+                                        <li class="li-indent">Complete the initial setup wizard</li>
+                                        <li class="li-indent">Verify user authentication</li>
+                                        <li class="li-indent">Test Kali Linux workspace launch</li>
+                                        <li class="li-indent">Confirm development tools availability</li>
+                                    </ol>
+                                </div>
+
+                                <!-- Troubleshooting -->
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+                                    <h4 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-100">Troubleshooting</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h5 class="text-md font-semibold mb-2 text-gray-800 dark:text-gray-100">Terraform Provider Issues</h5>
+                                            <ul class="list-disc pl-6 text-gray-600 dark:text-gray-300">
+                                                <li class="li-indent">Verify Proxmox API token permissions</li>
+                                                <li class="li-indent">Check network connectivity</li>
+                                                <li class="li-indent">Confirm SSL/TLS settings</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-md font-semibold mb-2 text-gray-800 dark:text-gray-100">Cloud-Init Template Problems</h5>
+                                            <ul class="list-disc pl-6 text-gray-600 dark:text-gray-300">
+                                                <li class="li-indent">Validate YAML syntax</li>
+                                                <li class="li-indent">Check cloud-init logs: /var/log/cloud-init.log</li>
+                                                <li class="li-indent">Verify template accessibility in Proxmox</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-md font-semibold mb-2 text-gray-800 dark:text-gray-100">Kasm Workspace Access</h5>
+                                            <ul class="list-disc pl-6 text-gray-600 dark:text-gray-300">
+                                                <li class="li-indent">Check firewall rules</li>
+                                                <li class="li-indent">Verify SSL certificate configuration</li>
+                                                <li class="li-indent">Review Kasm service logs</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
