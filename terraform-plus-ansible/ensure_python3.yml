@@ -1,0 +1,30 @@
+- name: Ensure Python3 exists
+  hosts: containers
+  gather_facts: no
+  tasks:
+    - name: Check if need to install Python3
+      raw: which python3
+      changed_when: false
+      failed_when: false
+      register: which_python3
+    - name: Install Python3
+      when: which_python3.rc != 0
+      raw: apk update && apk add python3
+    - name: Recheck for Python3
+      raw: which python3
+      changed_when: false
+      failed_when: false
+      register: check_python
+    - name: fail if no Python3
+      fail:
+        msg: "python3 not found"
+      when: check_python.rc != 0
+    - name: print python3
+      debug:
+        msg: "Python location: {{ check_python.stdout }}"
+    - name: uname
+      command: uname -a
+      register: uname
+    - name: print uname
+      debug:
+        msg: "{{ uname.stdout }}"
