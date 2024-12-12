@@ -60,7 +60,7 @@ body {
 }
 
 html.dark .profile-section {
-    background: linear-gradient(135deg, #1e3a8a, #2C4B8C);
+    background: linear-gradient(135deg, #1e3b8aa4, #2251b8c4, #1e3b8aa4);
 }
 
 /* Headshot container styles */
@@ -98,8 +98,8 @@ html.dark .profile-section {
 }
 
 html.dark .content-card {
-    background: rgba(31, 41, 55, 0.95);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    background: rgba(54, 54, 56, 0.75);
+    box-shadow: 0 4px 6px -1px rgba(75, 75, 75, 0.2);
 }
 
 /* Hover effects */
@@ -163,32 +163,36 @@ html.dark .dark\:bg-gray-800 {
   }
 
 /* begin the section for msuu-project display */
+
 .installation-step {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.5s ease-out;
-}
-
-.installation-step.visible {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    will-change: opacity, transform;
+  }
+  
+  .installation-step.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.installation-content {
+  }
+  
+  .installation-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-out;
-}
-
-.installation-content:not(.hidden) {
-    max-height: 1000px;
-}
-
-pre {
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .installation-content:not(.hidden) {
+    max-height:fit-content;
+  }
+  .installation-step:last-child {
+    margin-bottom: 50vh; /* This ensures there's enough scroll space */
+  }
+  pre {
     overflow-x: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
-}
+  }
 
 .prose pre {
     margin: 0;
