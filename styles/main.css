@@ -1,8 +1,8 @@
 /* main.css begin*/
 /* Base styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
     color-scheme: light dark;
@@ -128,6 +128,7 @@ html.dark .hover-float:hover {
 
 html.dark .skill-tag {
     background-color: rgba(37, 99, 235, 0.4);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
@@ -191,4 +192,4 @@ pre {
 .prose pre {
     margin: 0;
 }
-/* main.css end */ 
+/* main.css end */
