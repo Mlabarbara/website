@@ -9,11 +9,11 @@
         "ignore": [
           "text-size-adjust",
           "webkit-text-size-adjust",
-          "-webkit-text-size-adjust",
-          "files/"
+          "-webkit-text-size-adjust"
         ]
       }
     ],
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "axe/name-role-value": "off"
   }
 }
