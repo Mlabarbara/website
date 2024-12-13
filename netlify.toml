@@ -1,2 +1,15 @@
-#[build]
-#  publish = "src/pages"
+[
+build
+]
+
+    publish = "."
+    command = "npx tailwinds -i styles/main.css -o styles/mainout.css"
+
+[[
+headers
+]]
+    for = "/styles/*"
+    [
+headers.values
+]
+    Cache-Control = "public, max-age=0, must-revalidate"
