@@ -1,15 +1,8 @@
-[
-build
-]
+[build]
+  publish = "."
+  command = "npx tailwindcss -i styles/main.css -o styles/mainout.css"
 
-    publish = "."
-    command = "npx tailwinds -i styles/main.css -o styles/mainout.css"
-
-[[
-headers
-]]
-    for = "/styles/*"
-    [
-headers.values
-]
+[[headers]]
+  for = "/styles/*"
+  [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
