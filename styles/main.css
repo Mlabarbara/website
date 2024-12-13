@@ -64,7 +64,7 @@ html.dark .nav-header{
 }
 
 html.dark .profile-section {
-    background: linear-gradient(135deg, #1e3b8aa4, #2251b8c4, #1e3b8aa4);
+    background: linear-gradient(30deg, #1e3b8aa4, #2251b8c4, #1e3b8aa4);
 }
 /* Dark mode button styles */
 .dark\:text-gray-100:is(.dark *) {
