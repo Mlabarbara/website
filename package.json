@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "This is a website that I have tied together with netifly that builds automatically based on changes the to website/gh-pages branch.",
   "scripts": {
-    "dev": "npx tailwindcss -i styles/main.css -o output.css --watch",
-    "build": "npx tailwindcss -i styles/main.css -o output.css --minify"
+    "dev": "npx tailwindcss -i styles/main.css -o styles/mainout.css --watch",
+    "build": "npx tailwindcss -i styles/main.css -o styles/mainout.css --minify"
   },
   "keywords": [],
   "author": "Mark LaBarbara",

@@ -20,10 +20,10 @@ async function fetchAndDisplayRepos() {
         // Create elements for each repo
         repos.forEach(repo => {
             const repoCard = document.createElement('div');
-            repoCard.className = 'p-4 rounded-lg shadow hover:floating-card bg-white dark:bg-gray-800 transition-all';
+            repoCard.className = 'p-4 rounded-lg shadow hover:floating-card bg-white dark:bg-gray-900 transition-all';
 
             const title = document.createElement('h4');
-            title.className = 'text-lg font-semibold text-blue-700 dark:text-blue-400 mb-2';
+            title.className = 'text-lg font-semibold text-blue-800 dark:text-blue-500 mb-2';
             title.innerText = repo.name;
 
             const description = document.createElement('p');
