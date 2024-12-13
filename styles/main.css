@@ -36,7 +36,6 @@ body {
     padding: 0.5rem 1rem;
     transition: color 0.3s ease;
 }
-
 .nav-link::after {
     content: '';
     position: absolute;
@@ -48,14 +47,19 @@ body {
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
-
+.nav-header {
+    background: linear-gradient(135deg, #1e40af, #2563eb,  #1e40af);
+}
+html.dark .nav-header{
+    background-color: rgb(20, 26, 34);
+}
 .nav-link:hover::after {
     width: 80%;
 }
 
 /* Profile section styles */
 .profile-section {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
+    background: linear-gradient(135deg, #2563eb, #1e40af, #2563eb);
     transition: background 0.3s ease;
 }
 
