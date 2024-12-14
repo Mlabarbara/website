@@ -15,5 +15,11 @@
     ],
     "no-inline-styles": "off",
     "axe/name-role-value": "off"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not ios_saf <= 18.2",
+    "not safari <= 18.2"
+  ]
 }
