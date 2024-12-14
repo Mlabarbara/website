@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/mainout.css">
 </head>
 <body class="bg-gray-100 dark:bg-black">
-    <!-- Navigation -->
+    <!-- Navigation uses nav-header and .dark to have a blue gradient in light and dark custom zinz in dark -->
     <nav class="nav-header dark:nav-header shadow-lg">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between h-16">
@@ -22,10 +22,12 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="nav-link text-white hover:text-blue-200">Home</a>
+                    <a href="resume.html" class="nav-link text-white hover:text-blue-200">Resumé</a>
                     <a href="blog.html" class="nav-link text-white hover:text-blue-200">Blog</a>
                     <a href="projects.html" class="nav-link text-white hover:text-blue-200">Projects</a>
                     <a href="contact.html" class="nav-link text-white hover:text-blue-200">Contact</a>
                     <a href="github.html" class="nav-link text-white hover:text-blue-200">Github</a>
+                    <a href="template.html" class="nav-link text-white hover:text-blue-200">Template</a>
                     <button id="theme-toggle" type="button" title="theme-toggle" class="p-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg">
                         <!-- Sun icon -->
                         <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,17 +62,19 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <a href="index.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Home</a>
+                <a href="resume.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Resumé</a>
                 <a href="blog.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Blog</a>
                 <a href="projects.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Projects</a>
                 <a href="contact.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Contact</a>
                 <a href="github.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">GitHub</a>
+                <a href="template.html" class="block px-4 py-2 text-white hover:bg-blue-800 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Template</a>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 py-12">
-        <!-- Projects Header Section -->
+        <!-- Projects Header Section -- uses profile-section and has a blue gradient background -->
         <section class="profile-section rounded-xl p-8 text-white mb-12 animate-fade-in hover-float">
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="text-center md:text-left">
@@ -81,7 +85,7 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- Content card section -- this will have a dark background -->
         <section class="content-card dark:bg-zinc-900 p-8 animate-fade-in hover-float" style="animation-delay: 0.2s">
             <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">About Me</h2>
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
