@@ -105,6 +105,49 @@
                 technical solutions while ensuring strong security practices.
             </p>
         </section>
+
+        <!-- Resume Section -->
+        <section class="content-card p-8 animate-fade-in hover-float dark:bg-zinc-900 mt-8" style="animation-delay: 0.4s">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">Resume</h2>
+            
+            <!-- Download Button -->
+            <div class="mb-6">
+                <a href="/assets/documents/mark-labarbara-resume.pdf" download class="inline-flex items-center px-6 py-3 profile-section rounded-lg text-white hover:opacity-90 transition-opacity">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download Resume
+                </a>
+            </div>
+
+            <!-- Resume Preview -->
+            <div class="relative w-full h-[1360px] bg-white dark:bg-zinc-800 rounded-lg overflow-hidden cursor-pointer" onclick="document.getElementById('resumeDialog').showModal()">
+                <iframe
+                    src="/assets/documents/mark-labarbara-resume.pdf"
+                    class="w-full h-full"
+                    title="Resume Preview"
+                ></iframe>
+                <div class="absolute inset-0 bg-black opacity-0 hover:opacity-10 transition-opacity"></div>
+            </div>
+        </section>
+
+        <!-- Resume Modal Dialog -->
+        <dialog id="resumeDialog" class="w-11/12 h-11/12 max-w-5xl p-0 bg-transparent backdrop:bg-black backdrop:bg-opacity-50">
+            <div class="relative w-full h-full bg-white dark:bg-zinc-800 rounded-lg">
+                <button 
+                    onclick="document.getElementById('resumeDialog').close()"
+                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <iframe
+                    src="/assets/documents/mark-labarbara-resume.pdf"
+                    class="w-full h-full"
+                    title="Resume Full View"
+                ></iframe>
+            </div>
+        </dialog>
     </main>
     <script src="js/main.js"></script>
 </body>

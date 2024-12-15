@@ -70,4 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMobileMenu();
     initializeAnimations();
 });
+
+// Resume dialog close on click outside
+const resumeDialog = document.getElementById('resumeDialog');
+if (resumeDialog) {
+    resumeDialog.addEventListener('click', (e) => {
+        const dialogDimensions = resumeDialog.getBoundingClientRect();
+        if (
+            e.clientX < dialogDimensions.left ||
+            e.clientX > dialogDimensions.right ||
+            e.clientY < dialogDimensions.top ||
+            e.clientY > dialogDimensions.bottom
+        ) {
+            resumeDialog.close();
+        }
+    });
+}
 //main.js end
