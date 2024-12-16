@@ -651,6 +651,10 @@ video {
   margin-bottom: 1rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -683,16 +687,16 @@ video {
   margin-top: 1rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 .mt-8 {
   margin-top: 2rem;
 }
 
 .mt-auto {
   margin-top: auto;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
 }
 
 .line-clamp-3 {
@@ -752,10 +756,6 @@ video {
 
 .h-96 {
   height: 24rem;
-}
-
-.h-\[1360px\] {
-  height: 1360px;
 }
 
 .h-full {
@@ -1183,12 +1183,12 @@ video {
   font-weight: 700;
 }
 
-.font-semibold {
-  font-weight: 600;
-}
-
 .font-medium {
   font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .leading-relaxed {
@@ -1596,6 +1596,52 @@ dialog#resumeModal[open] {
   }
 }
 
+/* Resume container responsive styles */
+
+.resume-preview-wrapper {
+  max-width: 850px;
+  /* Standard resume width */
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.resume-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 8.5/11;
+  /* Standard US letter size ratio */
+  min-height: 400px;
+  background: white;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.resume-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: solid black;
+}
+
+@media (max-width: 768px) {
+  .resume-preview-wrapper {
+    padding: 0.5rem;
+  }
+
+  .resume-container {
+    min-height: 300px;
+  }
+}
+
+/* Dark mode adjustments */
+
+html.dark .resume-container {
+  background: rgb(24, 27, 32);
+}
+
 /* END RESUME SECTION */
 
 /* begin the section for msuu-project display */
@@ -1692,6 +1738,10 @@ pre {
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .hover\:opacity-10:hover {

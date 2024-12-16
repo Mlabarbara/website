@@ -93,28 +93,25 @@
         <!-- About Section -->
         <section class="content-card p-8 animate-fade-in hover-float dark:bg-zinc-900" style="animation-delay: 0.2s">
             <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">About Me</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
+                    Hi, I’m Mark LaBarbara—a systems engineer, network administrator, and cybersecurity professional with a passion for problem-solving. I recently graduated <strong>Cum Laude</strong> from MSU Denver with a Bachelor's in Cybersecurity, where I focused on connecting theory with practical applications.
+                </p>
             
-            <!-- Academic Achievement -->
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                I recently graduated from Metropolitan State University of Denver with a BS in Cybersecurity, earning honors distinction (Cum Laude). 
-                This academic achievement reflects my dedication to excellence in the field of cybersecurity and information technology. 
-                Throughout my academic journey, I maintained a strong focus on practical applications while building a solid theoretical foundation.
-            </p>
-
-            <!-- Professional Focus -->
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                As a network engineer and systems administrator, I specialize in managing complex network systems and implementing robust cybersecurity measures.
-                My expertise spans across network engineering, systems administration, and cybersecurity, allowing me to provide comprehensive 
-                technical solutions while ensuring strong security practices.
-            </p>
-
-            <!-- Technical Projects -->
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                I'm passionate about building and contributing to open-source projects. This website itself is a testament to my technical skills,
-                built using modern web technologies including HTML5, TailwindCSS, and JavaScript. The site features responsive design, dark mode support,
-                and seamless PDF integration. You can explore the source code and my other projects on my GitHub, where I maintain repositories
-                ranging from Kubernetes clusters to SharePoint automation tools.
-            </p>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
+                    In my system administration role, I manage a diverse IT environment encompassing Active Directory, Microsoft 365, and virtualized infrastructures using Proxmox and Hyper-V. Whether it's implementing effective Group Policies, streamlining cloud integrations, or designing scalable systems, I enjoy finding solutions that enhance efficiency and reliability.
+                </p>
+            
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
+                    On the cybersecurity side, I’ve led efforts to align our organization with frameworks like NIST 800-53 and ISO 27001. From writing incident response plans to creating security awareness programs, I’ve worked to strengthen every layer of our infrastructure. Implementing a formal vulnerability management system is one of my proudest accomplishments so far.
+                </p>
+            
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
+                    I’ve also tackled unique development projects, such as writing a <strong>PowerShell application with a GUI</strong> to automate secure SharePoint portal creation for compliance with data transfer regulations. Additionally, I’ve modernized a legacy Access database CRM with VBA scripting and SQL reporting, including PDF automation for seamless sharing.
+                </p>
+            
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
+                    While I’m not actively contributing code to open-source projects yet, I use them extensively to optimize business processes securely. I’ve dabbled in writing Infrastructure-as-Code (IaC) and love exploring how open-source tools can simplify and enhance operations. My website and various coding projects—including SharePoint automation tools and custom networking scripts—are available on my <a href="github.html" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub</a>.
+                </p>
 
             <!-- Key Projects Highlight -->
             <div class="mt-6">
@@ -157,13 +154,13 @@
             </div>
         
             <!-- Resume Preview -->
-            <div class="relative w-full h-[1360px] bg-white dark:bg-zinc-800 rounded-lg overflow-hidden">
-                <embed
-                    src="/assets/documents/mark-labarbara-resume.pdf#toolbar=0&view=FitH"
-                    type="application/pdf"
-                    class="w-full h-full"
-                    style="border: none;"
-                />
+            <div class="resume-preview-wrapper">
+                <div class="resume-container">
+                    <embed
+                        src="/assets/documents/mark-labarbara-resume.pdf#toolbar=0&view=FitH&zoom=80"
+                        type="application/pdf"
+                        class="w-full h-full"
+                    />
                 <button 
                     onclick="openFullScreenResume()"
                     class="absolute inset-0 w-full h-full bg-black opacity-0 hover:opacity-10 transition-opacity cursor-pointer"
@@ -184,10 +181,9 @@
                         </button>
                     </div>
                     <embed
-                        src="/assets/documents/mark-labarbara-resume.pdf#toolbar=1&view=FitH"
+                        src="/assets/documents/mark-labarbara-resume.pdf#toolbar=1&view=FitH&zoom=80"
                         type="application/pdf"
                         class="w-full h-full rounded-lg"
-                        style="border: none;"
                     />
                 </div>
             </dialog>

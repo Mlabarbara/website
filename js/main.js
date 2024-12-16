@@ -70,6 +70,12 @@ function openFullScreenResume() {
     if (modal) {
         modal.showModal();
         document.body.style.overflow = 'hidden';
+        
+        // Force the PDF to fit the viewport initially
+        const embed = modal.querySelector('embed');
+        if (embed) {
+            embed.setAttribute('src', embed.getAttribute('src').split('#')[0] + '#view=Fit');
+        }
     }
 }
 
