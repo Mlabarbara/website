@@ -602,6 +602,10 @@ video {
   position: static;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -620,6 +624,10 @@ video {
 
 .top-4 {
   top: 1rem;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .mx-auto {
@@ -681,6 +689,10 @@ video {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .line-clamp-3 {
@@ -754,10 +766,6 @@ video {
   width: 2.75rem;
 }
 
-.w-11\/12 {
-  width: 91.666667%;
-}
-
 .w-4 {
   width: 1rem;
 }
@@ -784,6 +792,10 @@ video {
 
 .max-w-6xl {
   max-width: 72rem;
+}
+
+.max-w-\[1200px\] {
+  max-width: 1200px;
 }
 
 .max-w-none {
@@ -1175,6 +1187,10 @@ video {
   font-weight: 600;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .leading-relaxed {
   line-height: 1.625;
 }
@@ -1266,6 +1282,12 @@ video {
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1546,6 +1568,36 @@ html.dark .dark\:bg-gray-800 {
   margin-left: 50px;
 }
 
+/* Resmue section styles  */
+
+dialog#resumeModal {
+  padding: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  background: transparent;
+  border: none;
+}
+
+dialog#resumeModal::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+dialog#resumeModal[open] {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* END RESUME SECTION */
+
 /* begin the section for msuu-project display */
 
 .installation-step {
@@ -1593,8 +1645,8 @@ pre {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
-.backdrop\:bg-opacity-50::backdrop {
-  --tw-bg-opacity: 0.5;
+.backdrop\:bg-opacity-75::backdrop {
+  --tw-bg-opacity: 0.75;
 }
 
 .hover\:bg-blue-100:hover {

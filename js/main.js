@@ -64,26 +64,43 @@ function initializeAnimations() {
     });
 }
 
-// Initialize everything when DOM is loaded
+// Resume modal functionality
+function openFullScreenResume() {
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.showModal();
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeFullScreenResume() {
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.close();
+        document.body.style.overflow = '';
+    }
+}
+
+// Initialize resume modal
+function initializeResumeModal() {
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            const rect = modal.getBoundingClientRect();
+            const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.bottom &&
+                rect.left <= e.clientX && e.clientX <= rect.right);
+            if (!isInDialog) {
+                closeFullScreenResume();
+            }
+        });
+    }
+}
+
+// Add to your existing DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     initializeMobileMenu();
     initializeAnimations();
+    initializeResumeModal();
 });
-
-// Resume dialog close on click outside
-const resumeDialog = document.getElementById('resumeDialog');
-if (resumeDialog) {
-    resumeDialog.addEventListener('click', (e) => {
-        const dialogDimensions = resumeDialog.getBoundingClientRect();
-        if (
-            e.clientX < dialogDimensions.left ||
-            e.clientX > dialogDimensions.right ||
-            e.clientY < dialogDimensions.top ||
-            e.clientY > dialogDimensions.bottom
-        ) {
-            resumeDialog.close();
-        }
-    });
-}
 //main.js end

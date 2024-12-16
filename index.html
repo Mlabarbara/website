@@ -93,16 +93,51 @@
         <!-- About Section -->
         <section class="content-card p-8 animate-fade-in hover-float dark:bg-zinc-900" style="animation-delay: 0.2s">
             <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">About Me</h2>
+            
+            <!-- Academic Achievement -->
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                I'm a dedicated Cybersecurity professional completing my BS in Cybersecurity at MSU Denver (graduating December 2024). 
-                My passion for technology drives both my career and academic pursuits. As a network engineer and systems administrator, 
-                I specialize in managing complex network systems and implementing robust cybersecurity measures.
+                I recently graduated from Metropolitan State University of Denver with a BS in Cybersecurity, earning honors distinction (Cum Laude). 
+                This academic achievement reflects my dedication to excellence in the field of cybersecurity and information technology. 
+                Throughout my academic journey, I maintained a strong focus on practical applications while building a solid theoretical foundation.
             </p>
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-                In my free time, I enjoy exploring new technologies, working on personal projects, and contributing to open-source initiatives. 
+
+            <!-- Professional Focus -->
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                As a network engineer and systems administrator, I specialize in managing complex network systems and implementing robust cybersecurity measures.
                 My expertise spans across network engineering, systems administration, and cybersecurity, allowing me to provide comprehensive 
                 technical solutions while ensuring strong security practices.
             </p>
+
+            <!-- Technical Projects -->
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                I'm passionate about building and contributing to open-source projects. This website itself is a testament to my technical skills,
+                built using modern web technologies including HTML5, TailwindCSS, and JavaScript. The site features responsive design, dark mode support,
+                and seamless PDF integration. You can explore the source code and my other projects on my GitHub, where I maintain repositories
+                ranging from Kubernetes clusters to SharePoint automation tools.
+            </p>
+
+            <!-- Key Projects Highlight -->
+            <div class="mt-6">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">Featured Projects</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-50 dark:bg-zinc-800 rounded-lg">
+                        <h4 class="font-medium text-blue-600 dark:text-blue-400">Kubernetes Infrastructure</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Custom Kubernetes cluster deployments using Terraform, including specialized implementations for Kali Linux and Ubuntu environments.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-zinc-800 rounded-lg">
+                        <h4 class="font-medium text-blue-600 dark:text-blue-400">SharePoint Automation</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">GUI-based SharePoint management tool leveraging PnP.PowerShell for streamlined API interactions.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-zinc-800 rounded-lg">
+                        <h4 class="font-medium text-blue-600 dark:text-blue-400">Kaliform</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Terraform configuration for Kali Linuc containers with Proxmox Provider.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-zinc-800 rounded-lg">
+                        <h4 class="font-medium text-blue-600 dark:text-blue-400">Network Security Solutions</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Implementation of secure networking solutions including custom firewall configurations and container networking.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Resume Section -->
@@ -111,42 +146,52 @@
             
             <!-- Download Button -->
             <div class="mb-6">
-                <a href="/assets/documents/mark-labarbara-resume.pdf" download class="inline-flex items-center px-6 py-3 profile-section rounded-lg text-white hover:opacity-90 transition-opacity">
+                <a href="/assets/documents/mark-labarbara-resume.pdf" 
+                   download
+                   class="inline-flex items-center px-6 py-3 profile-section rounded-lg text-white hover:opacity-90 transition-opacity">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     Download Resume
                 </a>
             </div>
-
+        
             <!-- Resume Preview -->
-            <div class="relative w-full h-[1360px] bg-white dark:bg-zinc-800 rounded-lg overflow-hidden cursor-pointer" onclick="document.getElementById('resumeDialog').showModal()">
-                <iframe
-                    src="/assets/documents/mark-labarbara-resume.pdf"
+            <div class="relative w-full h-[1360px] bg-white dark:bg-zinc-800 rounded-lg overflow-hidden">
+                <embed
+                    src="/assets/documents/mark-labarbara-resume.pdf#toolbar=0&view=FitH"
+                    type="application/pdf"
                     class="w-full h-full"
-                    title="Resume Preview"
-                ></iframe>
-                <div class="absolute inset-0 bg-black opacity-0 hover:opacity-10 transition-opacity"></div>
-            </div>
-        </section>
-
-        <!-- Resume Modal Dialog -->
-        <dialog id="resumeDialog" class="w-11/12 h-11/12 max-w-5xl p-0 bg-transparent backdrop:bg-black backdrop:bg-opacity-50">
-            <div class="relative w-full h-full bg-white dark:bg-zinc-800 rounded-lg">
+                    style="border: none;"
+                />
                 <button 
-                    onclick="document.getElementById('resumeDialog').close()"
-                    class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    onclick="openFullScreenResume()"
+                    class="absolute inset-0 w-full h-full bg-black opacity-0 hover:opacity-10 transition-opacity cursor-pointer"
+                    aria-label="View full resume">
                 </button>
-                <iframe
-                    src="/assets/documents/mark-labarbara-resume.pdf"
-                    class="w-full h-full"
-                    title="Resume Full View"
-                ></iframe>
             </div>
-        </dialog>
+        
+            <!-- Full Screen Modal -->
+            <dialog id="resumeModal" class="fixed inset-0 w-full h-full p-4 bg-transparent backdrop:bg-black backdrop:bg-opacity-75">
+                <div class="relative w-full h-full max-w-[1200px] mx-auto bg-white dark:bg-zinc-800 rounded-lg shadow-xl">
+                    <div class="absolute top-4 right-4 z-10">
+                        <button 
+                            onclick="closeFullScreenResume()"
+                            class="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 bg-white dark:bg-zinc-800 rounded-full shadow-lg">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <embed
+                        src="/assets/documents/mark-labarbara-resume.pdf#toolbar=1&view=FitH"
+                        type="application/pdf"
+                        class="w-full h-full rounded-lg"
+                        style="border: none;"
+                    />
+                </div>
+            </dialog>
+        </section>
     </main>
     <script src="js/main.js"></script>
 </body>
