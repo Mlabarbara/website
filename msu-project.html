@@ -20,7 +20,7 @@
 </head>
 <body class="bg-gray-50 dark:bg-black transition-colors duration-200">
     <!-- Navigation uses nav-header and .dark to have a blue gradient in light and dark custom zinz in dark -->
-    <nav class="nav-header dark:nav-header shadow-lg">
+    <nav class="nav-header shadow-lg">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -82,7 +82,7 @@
     <main class="max-w-6xl mx-auto px-4 py-12">
         <!-- Project Overview -->
         <section class="profile-section transition-colors rounded-xl p-8 mb-8 animate-fade-in hover-float">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+            <h1 class="text-3xl font-bold text-white dark:text-gray-100 mb-4">
                 MSU Denver Project: Secure Development Environment
             </h1>
             <div class="flex flex-wrap gap-2 mb-4">
@@ -94,7 +94,7 @@
                 <span class="skill-tag">bash</span>
                 <span class="skill-tag">Infrastructure as Code</span>
             </div>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
+            <p class="text-white dark:text-gray-300 mb-4">
                 A comprehensive demonstration of setting up a secure development environment using modern DevOps practices.
             </p>
         </section>
@@ -110,7 +110,7 @@
                 <div class="grid gap-4">
                     <!-- Hardware Requirements Preview -->
                     <div class="prereq-preview mb-3" data-section="hardware">
-                        <div class="mt-4 flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                        <div class="mt-4 flex items-center hover-float animate-fade-in p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
                             <h3 class="prereq-header text-xl font-semibold text-gray-800 dark:text-gray-100">Hardware Requirements</h3>
                             <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
                         </div>
@@ -138,8 +138,8 @@
 
                     <!-- Software Requirements Preview -->
                     <div class="prereq-preview mb-3" data-section="software">
-                        <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
-                            <h3 class="prereq-header text-xl text-gray-800 dark:text-gray-100">Software Requirements</h3>
+                        <div class="flex items-center hover-float justify-between p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                            <h3 class="prereq-header text-xl font-semibold text-gray-800 dark:text-gray-100">Software Requirements</h3>
                             <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
                         </div>
                         <div class="prereq-content dark:text-blue-400 hidden mt-4 pl-4 space-y-2">
@@ -162,7 +162,7 @@
 
                     <!-- Network Requirements Preview -->
                     <div class="prereq-preview mb-3" data-section="network">
-                        <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                        <div class="flex items-center hover-float justify-between p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
                             <h3 class="prereq-header text-xl font-semibold text-gray-800 dark:text-gray-100">Network Requirements</h3>
                             <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
                         </div>
@@ -186,7 +186,7 @@
 
                     <!-- Required Knowledge Preview -->
                     <div class="prereq-preview" data-section="knowledge">
-                        <div class="flex items-center justify-between p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
+                        <div class="flex items-center hover-float justify-between p-4 bg-blue-50 dark:bg-gray-900 rounded-lg cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-700 transition-all">
                             <h3 class="prereq-header text-xl font-semibold text-gray-800 dark:text-gray-100">Required Knowledge</h3>
                             <span class="text-blue-600 dark:text-blue-400 text-sm">View Details</span>
                         </div>
@@ -217,7 +217,7 @@
                 <div class="space-y-6" id="installation-accordion">
                     <!-- Step 1: Initial Setup -->
                     <div class="installation-step" data-step="1">
-                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                        <div class="flex items-center hover-float p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
                             <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">01</span>
                             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Initial Server Setup</h3>
                             <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="darkgray" viewBox="0 0 24 24">
@@ -307,7 +307,7 @@
         
                     <!-- Step 2: Proxmox Installation -->
                     <div class="installation-step" data-step="2">
-                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                        <div class="flex items-center hover-float p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
                             <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">02</span>
                             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Proxmox Installation</h3>
                             <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="darkgray" viewBox="0 0 24 24">
@@ -364,7 +364,7 @@
 
                     <!-- Step 3: Initial Configuration -->
                     <div class="installation-step" data-step="3">
-                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                        <div class="flex items-center hover-float p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
                             <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">03</span>
                             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Initial Configuration</h3>
                             <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="darkgray" viewBox="0 0 24 24">
@@ -397,7 +397,7 @@
 
                     <!-- Step 4: Remote Development Setup -->
                     <div class="installation-step" data-step="4">
-                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                        <div class="flex items-center hover-float p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
                             <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">04</span>
                             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Remote Development Setup</h3>
                             <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="darkgray" viewBox="0 0 24 24">
@@ -516,7 +516,7 @@ ssh root@your-proxmox-ip</code></pre>
                     
                     <!-- Step 5: Infrastructure Deployment -->
                     <div class="installation-step" data-step="5">
-                        <div class="flex items-center p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
+                        <div class="flex items-center hover-float p-4 cursor-pointer bg-blue-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:bg-blue-100 dark:hover:bg-gray-700">
                             <span class="text-2xl font-semibold mr-4 text-blue-600 dark:text-blue-400">05</span>
                             <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Infrastructure Deployment</h3>
                             <svg class="w-6 h-6 ml-auto transform transition-transform duration-300" fill="none" stroke="darkgray" viewBox="0 0 24 24">

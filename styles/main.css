@@ -27,6 +27,7 @@ body {
 
 .animate-fade-in {
     animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
 }
 
 /* Navigation styles */
@@ -51,7 +52,7 @@ body {
     background: linear-gradient(135deg, #1e40af, #2563eb,  #1e40af);
 }
 html.dark .nav-header{
-    background: rgb(20, 26, 34);
+    background: rgb(12, 17, 21);;
 }
 .nav-link:hover::after {
     width: 80%;
@@ -177,7 +178,7 @@ html.dark .dark\:bg-gray-900 {
     background: rgb(0, 0, 0);
 }
 html.dark .dark\:bg-zinc-900 {
-    background: rgb(20, 26, 34);
+    background: rgb(32, 35, 41);
 }
 html.dark .dark\:bg-gray-800 {
     background: rgb(24, 27, 32);
@@ -234,6 +235,66 @@ dialog#resumeModal[open] {
     height: 100%;
     border: solid black; 
 }
+
+/* Prerequisites stuff  */
+/* Prerequisite styles */
+.prereq-content {
+  transition: all 0.3s ease-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.prereq-content:not(.hidden) {
+  max-height: fit-content;
+  opacity: 1;
+}
+
+.prereq-preview {
+  transition: transform 0.3s ease-out;
+}
+
+.prereq-preview:hover {
+  transform: translateX(8px);
+}
+
+.prereq-header {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.prereq-header::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  background-color: #60a5fa;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.prereq-preview:hover .prereq-header::after,
+.prereq-header.active::after {
+  width: 80%;
+}
+
+/* Change text color on hover of the entire preview */
+/* .prereq-preview:hover .prereq-header,
+.prereq-header.active {
+  color: #0f07b1; 
+} */
+
+/* Dark mode support */
+/* html.dark .prereq-header::after {
+  background-color: rgb(15, 7, 177);
+} */
+
+html.dark .prereq-preview:hover .prereq-header,
+html.dark .prereq-header.active {
+  color: rgb(96, 165, 250); /* blue-400 */
+}
+
 
 @media (max-width: 768px) {
     .resume-preview-wrapper {
