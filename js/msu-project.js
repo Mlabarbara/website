@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create an observer instance for each step
     const observers = new Map();
     
-    steps.forEach((step, index) => {
+    steps.forEach((step) => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
